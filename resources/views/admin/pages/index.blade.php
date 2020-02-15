@@ -9,25 +9,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="table-rep-plugin">
-                                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                        <thead>
-                                                <tr>
-                                                    <th>Email</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach(@$data['pageData'] as $items)
-                                                    <tr>
-                                                        <td>
-                                                            {!! $items->email.'<br>' !!}
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                        {!! PaginateRoute::renderPageList(@$data['pageData'],true,'pagination',true) !!}
+                                    <div class="btn-group btn-group-sm float-right mb-1" role="group">
+                                        <button type="button" class="btn btn-primary btn-sm" title="Create Category">
+                                            <i class="uil uil-pen"></i> Create Category
+                                        </button>
                                     </div>
+                                    {!! $data['pageData']->table() !!}
                                 </div>
                             </div>
                         </div>

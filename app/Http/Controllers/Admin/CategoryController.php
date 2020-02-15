@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Exception;
-use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
+use Yajra\DataTables\Html\Builder;
 
 class CategoryController extends Controller
 {
@@ -15,12 +16,51 @@ class CategoryController extends Controller
     /*
      * Def : List of all categories
      * */
-    public function index(){
+    public function index(Builder $builder){
         try{
+            if (request()->ajax()) {
+                return DataTables::of(User::latest()->get())
+                        ->addIndexColumn()
+                        ->addColumn('action',function(){
+                            return ' <div class="btn-group btn-group-sm" role="group">
+                                        <button type="button" class="btn btn-sm btn-primary" title="View Category"><i class="uil uil-eye"></i></button>
+                                        <button type="button" class="btn btn-sm btn-warning" title="Edit Category"><i class="uil uil-edit"></i></button>
+                                        <button type="button" class="btn btn-sm btn-danger" title="Remove Category"><i class="uil uil-trash"></i></button>
+                                    </div>';
+                        })
+                        ->make(true);
+            }
+            $html = $builder->columns([
+                ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'S.No.', 'width' => '10px'],
+                ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
+                ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
+                ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created At'],
+                ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false],
+            ])->parameters([
+                'dom'           => 'Blfrtip',
+                'processing'    => true,
+//                'language'     => [
+//                  'processing' => '<img src="https://thumbs.gfycat.com/SizzlingSmallAbalone-small.gif">'
+//                ],
+                'responsive'    => true,
+                'bAutoWidth'    => false,
+                'lengthMenu'    => [[5 ,10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+                'buttons'       => [
+                    [
+                        'extend'    => 'excelHtml5',
+                        'title'     => 'Categories_Data_'.date('Y-m-d_h-i-s')
+                    ],
+                    [
+                        'extend'    => 'pdfHtml5',
+                        'title'     => 'Categories_Data_'.date('Y-m-d_h-i-s')
+                    ],
+                    'copy', 'print'
+                ]
+            ]);
             $data = [
                 'pageTitle' => 'Category Listing',
                 'pageInfo'  => 'Categories are a way of grouping blog, product, media, page and news',
-                'pageData'  => DB::table('users')->paginate(5) //User::paginate(5)
+                'pageData'  => $html
             ];
             return view('admin.pages.index',compact('data'));
         }catch (Exception $exception){
