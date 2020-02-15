@@ -191,6 +191,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child::before {
     top: 5px;
 }
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.85em;
+    white-space: normal;
+}
 table.dataTable > tbody > tr.child span.dtr-title {
     display: inline-block;
     min-width: 100px;

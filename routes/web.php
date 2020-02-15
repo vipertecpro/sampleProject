@@ -22,7 +22,10 @@ Route::get('/', function () {
 Route::get('/create', function () {
     return view('admin.pages.plugins.create');
 });
-Route::paginate('categories','Admin\CategoryController@index');
+Route::get('categories','Admin\CategoryController@index');
+Route::get('createUpdateForm/{id?}','Admin\CategoryController@createUpdateForm');
+Route::post('createUpdateRequest/{id?}','Admin\CategoryController@createUpdateRequest')->name('createUpdateRequest');
+
 Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
     try{
         $command = new Process('composer require laravelcollective/html');

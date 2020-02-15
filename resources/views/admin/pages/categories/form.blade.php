@@ -8,11 +8,15 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-12">
-                                    <h1>Create Categories</h1>
-                                    <hr>
-                                </div>
                                 <div class="col-md-12">
+                                    {!!
+                                            Form::model(@$data['formData'], [
+                                                'route' => ['createUpdateRequest', @$data['formData']->id],
+                                                'id'    => 'categoryForm'
+                                            ])
+                                    !!}
+                                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
