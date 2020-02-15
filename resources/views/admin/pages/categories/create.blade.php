@@ -9,7 +9,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <h1>Create Plugins</h1>
+                                    <h1>Create Categories</h1>
                                     <hr>
                                 </div>
                                 <div class="col-md-12">

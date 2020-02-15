@@ -5,4 +5,5 @@
 <script src="{{ asset('admin/libs/node-waves/waves.min.js') }}"></script>
 <script src="{{ asset('admin/libs/jquery-knob/jquery.knob.min.js') }}"></script>
 <script src="{{ asset('admin/js/pages/dashboard.init.js') }}"></script>
+@stack('plugin_script')
 <script src="{{ asset('admin/js/app.js') }}"></script>

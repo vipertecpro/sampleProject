@@ -19,14 +19,13 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 Route::get('/', function () {
     return view('admin.pages.dashboard');
 });
-
 Route::get('/create', function () {
     return view('admin.pages.plugins.create');
 });
+Route::paginate('categories','Admin\CategoryController@index');
 Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
     try{
         $command = new Process('composer require laravelcollective/html');
-//        $command = new Process('which composer ');
         $command->setWorkingDirectory(base_path());
         $command->run();
         if($command->isSuccessful()){
@@ -39,4 +38,3 @@ Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
         dd($exception->getMessage());
     }
 })->name('uploadPlugins');
-
