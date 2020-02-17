@@ -23,15 +23,15 @@ class CategoryController extends Controller
             if (request()->ajax()) {
                 return DataTables::of(User::latest()->get())
                         ->addIndexColumn()
-                        ->addColumn('action',function(){
+                        ->addColumn('action',function(User $user){
                             return ' <div class="btn-group btn-group-sm" role="group">
-                                        <button type="button" class="btn btn-sm btn-primary" title="View Category">
+                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.category.show',$user->id).'" title="View Category">
                                             <i class="uil uil-eye"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-warning" title="Edit Category">
+                                        <button type="button" class="btn btn-sm btn-warning edit" title="Edit Category">
                                             <i class="uil uil-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger" title="Remove Category">
+                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.category.remove').'" data-id="'.$user->id.'" title="Remove Category">
                                             <i class="uil uil-trash"></i>
                                             </button>
                                     </div>';
@@ -47,9 +47,6 @@ class CategoryController extends Controller
             ])->parameters([
                 'dom'           => 'Blfrtip',
                 'processing'    => true,
-//                'language'     => [
-//                  'processing' => '<img src="https://thumbs.gfycat.com/SizzlingSmallAbalone-small.gif">'
-//                ],
                 'responsive'    => true,
                 'bAutoWidth'    => false,
                 'lengthMenu'    => [[5 ,10, 25, 50, -1], [5, 10, 25, 50, 'All']],
@@ -79,29 +76,24 @@ class CategoryController extends Controller
         }
     }
     public function createUpdateForm($id = 0){
-         try{
-             if($id === 0){
-                 $data = [
-                     'pageTitle' => 'Category Create',
-                     'pageInfo'  => 'Create category',
-                     'formType'  => 'create',
-                     'formData'  => [],
-                 ];
-             }else{
-                 $data = [
-                     'pageTitle' => 'Category Edit',
-                     'pageInfo'  => 'Update/Edit Category',
-                     'formType'  => 'create',
-                     'formData'  => User::findOrFail($id),
-                 ];
-             }
-            return view('admin.pages.categories.form',compact('data'));
-         }catch (Exception $exception){
-             return response()->json([
-                 'status'     => 'error',
-                 'message'    => $exception->getMessage()
-             ],401);
+         if($id === 0){
+             $data = [
+                 'pageTitle'        => 'Category Create',
+                 'pageInfo'         => 'Create category',
+                 'formType'         => 'create',
+                 'formData'         => [],
+                 'getAllParentList' => []
+             ];
+         }else{
+             $data = [
+                 'pageTitle'        => 'Category Edit',
+                 'pageInfo'         => 'Update/Edit Category',
+                 'formType'         => 'create',
+                 'formData'         => User::findOrFail($id),
+                 'getAllParentList' => []
+             ];
          }
+        return view('admin.pages.categories.form',compact('data'));
     }
     public function createUpdateRequest(Request $request, $id = 0){
         try{
@@ -118,5 +110,21 @@ class CategoryController extends Controller
                 'message'    => $exception->getMessage()
             ],401);
         }
+    }
+    public function showRemove(Request $request, $id = 0){
+        if($request->ajax()){
+            User::findOrFail($request->get('category_id'))->delete();
+            return response()->json([
+                'status'     => 'success',
+                'message'    => 'Category removed successfully'
+            ],200);
+        }
+        $data = [
+            'pageTitle'        => 'View Category',
+            'pageInfo'         => 'Here you can view the details of category.',
+            'formData'         => User::findOrFail($id),
+            'getAllParentList' => []
+        ];
+        return view('admin.pages.categories.view',compact('data'));
     }
 }

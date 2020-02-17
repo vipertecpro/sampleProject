@@ -19,8 +19,38 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 Route::get('/', function () {
     return view('admin.pages.dashboard');
 });
-Route::get('/create', function () {
-    return view('admin.pages.plugins.create');
+Route::group([
+    'prefix'    => 'admin',
+    'as'        => 'admin.',
+    'namespace' => 'Admin'
+],function(){
+
+    Route::group([
+        'prefix'    => 'categories',
+        'as'        => 'category.'
+    ],function(){
+        Route::get('/','CategoryController@index')->name('list');
+        Route::get('/create','CategoryController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','CategoryController@createUpdateForm')->name('edit');
+        Route::post('storeUpdate/{id}','CategoryController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','CategoryController@showRemove')->name('show');
+        Route::post('remove','CategoryController@showRemove')->name('remove');
+    });
+    Route::group([],function(){
+
+    });
+    Route::group([],function(){
+
+    });
+    Route::group([],function(){
+
+    });
+    Route::group([],function(){
+
+    });
+    Route::group([],function(){
+
+    });
 });
 Route::get('categories','Admin\CategoryController@index');
 Route::get('createUpdateForm/{id?}','Admin\CategoryController@createUpdateForm');

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e74ca235ee38cee27506d7f359603a08",
+    "content-hash": "7aaf2b8f1d031fc7c6ebd7e0bdca1f44",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3395,76 +3395,6 @@
             "time": "2019-10-24T08:53:34+00:00"
         },
         {
-            "name": "vipertecpro/laravel-pretty-pagination",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vipertecpro/laravel-pretty-pagination.git",
-                "reference": "83c020b1060540320ea22b4f2a57ddbb2d1429f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vipertecpro/laravel-pretty-pagination/zipball/83c020b1060540320ea22b4f2a57ddbb2d1429f9",
-                "reference": "83c020b1060540320ea22b4f2a57ddbb2d1429f9",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "6.*",
-                "illuminate/pagination": "6.*",
-                "illuminate/routing": "6.*",
-                "illuminate/translation": "6.*",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "ext-json": "*",
-                "orchestra/testbench": "~3.8.0|^4.0",
-                "phpunit/phpunit": "^8.0",
-                "roave/security-advisories": "dev-master"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Vipertecpro\\PaginateRoute\\PaginateRouteServiceProvider"
-                    ],
-                    "aliases": {
-                        "PaginateRoute": "Vipertecpro\\PaginateRoute\\PaginateRouteFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Vipertecpro\\PaginateRoute\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vipul Walia",
-                    "email": "vipertecpro@gmail.com",
-                    "homepage": "https://www.vipertecpro.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel SEO friendly pagination routing.",
-            "homepage": "https://github.com/vipertecpro/laravel-pretty-pagination",
-            "keywords": [
-                "laravel",
-                "laravel-pretty-pagination",
-                "pagination",
-                "routing",
-                "seo",
-                "vipertecpro"
-            ],
-            "time": "2020-02-05T13:48:15+00:00"
-        },
-        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.0",
             "source": {
@@ -5871,9 +5801,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "vipertecpro/laravel-pretty-pagination": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
