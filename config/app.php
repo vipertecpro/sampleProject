@@ -166,7 +166,6 @@ return [
          * Package Service Providers...
          */
         App\Providers\RepositoryServiceProvider::class,
-        Vipertecpro\PaginateRoute\PaginateRouteServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -226,7 +225,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'PaginateRoute' => Vipertecpro\PaginateRoute\PaginateRouteFacade::class,
 
     ],
 

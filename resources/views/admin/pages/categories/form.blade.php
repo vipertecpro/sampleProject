@@ -15,7 +15,21 @@
                                                 'id'    => 'categoryForm'
                                             ])
                                     !!}
-                                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                                    <div class="form-group">
+                                        {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('slug', 'Slug', ['class' => 'control-label']) !!}
+                                        {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('parent_id', 'Parent Category', ['class' => 'control-label']) !!}
+                                        {!! Form::select('parent_id', @$data['getAllParentList'], null, ['class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                            <button class="btn btn-success" type="button">Submit</button>
+                                    </div>
                                     {!! Form::close() !!}
                                 </div>
                             </div>
