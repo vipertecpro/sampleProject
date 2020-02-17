@@ -7,3 +7,4 @@
 <script src="{{ asset('admin/js/pages/dashboard.init.js') }}"></script>
 @stack('plugin_script')
 <script src="{{ asset('admin/js/app.js') }}"></script>
+<script src="{{ asset('admin/js/custom.js') }}"></script>

@@ -124,7 +124,7 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting::after, t
     display: block;
     width: 100%;
     height: calc(1.5em + 0.50rem + 2px);
-    padding: 0 30px 0 0;
+    padding: 0 30px 0 4px;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;

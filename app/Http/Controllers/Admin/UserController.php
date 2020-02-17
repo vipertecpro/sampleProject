@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Taxonomy;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -11,28 +10,28 @@ use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     public function __construct(){
 
     }
     /*
-     * Def : List of all categories
+     * Def : List of all users
      * */
     public function index(Builder $builder){
         try{
             if (request()->ajax()) {
-                return DataTables::of(Taxonomy::where('type','category')->latest()->get())
+                return DataTables::of(User::latest()->get())
                         ->addIndexColumn()
-                        ->addColumn('action',function(Taxonomy $category){
+                        ->addColumn('action',function(User $user){
                             return ' <div class="btn-group btn-group-sm" role="group">
-                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.category.show',$category->id).'" title="View Taxonomy">
+                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.user.show',$user->id).'" title="View User">
                                             <i class="uil uil-eye"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-warning edit" data-url="'.route('admin.category.edit',$category->id).'" title="Edit Taxonomy">
+                                        <button type="button" class="btn btn-sm btn-warning edit" data-url="'.route('admin.user.edit',$user->id).'" title="Edit User">
                                             <i class="uil uil-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.category.remove').'" data-id="'.$category->id.'" title="Remove Taxonomy">
+                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.user.remove').'" data-id="'.$user->id.'" title="Remove User">
                                             <i class="uil uil-trash"></i>
                                             </button>
                                     </div>';
@@ -42,7 +41,7 @@ class CategoryController extends Controller
             $html = $builder->columns([
                 ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'S.No.', 'width' => '10px'],
                 ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
-                ['data' => 'slug', 'name' => 'slug', 'title' => 'Slug'],
+                ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
                 ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false],
             ])->parameters([
                 'dom'           => 'Blfrtip',
@@ -53,20 +52,20 @@ class CategoryController extends Controller
                 'buttons'       => [
                     [
                         'extend'    => 'excelHtml5',
-                        'title'     => 'Categories_Data_'.date('Y-m-d_h-i-s')
+                        'title'     => 'Users_Data_'.date('Y-m-d_h-i-s')
                     ],
                     [
                         'extend'    => 'pdfHtml5',
-                        'title'     => 'Categories_Data_'.date('Y-m-d_h-i-s')
+                        'title'     => 'Users_Data_'.date('Y-m-d_h-i-s')
                     ],
                     'copy', 'print'
                 ]
             ]);
             $data = [
-                'pageType'      => 'category',
-                'createBtnUrl'  => route('admin.category.create'),
-                'pageTitle'     => 'Category Listing',
-                'pageInfo'      => 'Categories are a way of grouping blog, product, media, page and news',
+                'pageType'      => 'user',
+                'createBtnUrl'  => route('admin.user.create'),
+                'pageTitle'     => 'User Listing',
+                'pageInfo'      => 'A user is a person who utilizes a computer or network service.',
                 'pageData'      => $html
             ];
             return view('admin.pages.index',compact('data'));
@@ -80,27 +79,20 @@ class CategoryController extends Controller
     public function createUpdateForm($id = 0){
          if($id === 0){
              $data = [
-                 'pageTitle'        => 'Category Create',
-                 'pageInfo'         => 'Create category',
+                 'pageTitle'        => 'User Create',
+                 'pageInfo'         => 'Create user',
                  'formType'         => 'create',
-                 'formData'         => [],
-                 'getAllParentList' => Taxonomy::where('type','category')
-                                         ->where('parent_id','0')
-                                         ->pluck('name','id')
+                 'formData'         => []
              ];
          }else{
              $data = [
-                 'pageTitle'        => 'Category Edit',
-                 'pageInfo'         => 'Update/Edit Category',
+                 'pageTitle'        => 'User Edit',
+                 'pageInfo'         => 'Update/Edit User',
                  'formType'         => 'edit',
-                 'formData'         => Taxonomy::findOrFail($id),
-                 'getAllParentList' => Taxonomy::where('type','category')
-                                                ->where('id','!=',$id)
-                                                ->where('parent_id','0')
-                                                ->pluck('name','id')
+                 'formData'         => User::findOrFail($id)
              ];
          }
-        return view('admin.pages.categories.form',compact('data'));
+        return view('admin.pages.users.form',compact('data'));
     }
 
     public function createUpdateRequest(Request $request, $id = 0){
@@ -122,18 +114,18 @@ class CategoryController extends Controller
 
     public function showRemove(Request $request, $id = 0){
         if($request->ajax()){
-            Taxonomy::findOrFail($request->get('id'))->delete();
+            User::findOrFail($request->get('id'))->delete();
             return response()->json([
                 'status'     => 'success',
-                'message'    => 'Taxonomy removed successfully'
+                'message'    => 'User removed successfully'
             ],200);
         }
         $data = [
-            'pageTitle'        => 'View Taxonomy',
-            'pageInfo'         => 'Here you can view the details of category.',
-            'formData'         => Taxonomy::findOrFail($id),
+            'pageTitle'        => 'View User',
+            'pageInfo'         => 'Here you can view the details of user.',
+            'formData'         => User::findOrFail($id),
             'getAllParentList' => []
         ];
-        return view('admin.pages.categories.view',compact('data'));
+        return view('admin.pages.users.view',compact('data'));
     }
 }

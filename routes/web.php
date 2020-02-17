@@ -24,7 +24,8 @@ Route::group([
     'as'        => 'admin.',
     'namespace' => 'Admin'
 ],function(){
-
+    Route::get('/','MainController@index')->name('index');
+    Route::get('/dashboard','MainController@dashboard')->name('dashboard');
     Route::group([
         'prefix'    => 'categories',
         'as'        => 'category.'
@@ -32,42 +33,46 @@ Route::group([
         Route::get('/','CategoryController@index')->name('list');
         Route::get('/create','CategoryController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','CategoryController@createUpdateForm')->name('edit');
-        Route::post('storeUpdate/{id}','CategoryController@createUpdateRequest')->name('storeUpdate');
+        Route::post('storeUpdate/{id?}','CategoryController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','CategoryController@showRemove')->name('show');
         Route::post('remove','CategoryController@showRemove')->name('remove');
     });
-    Route::group([],function(){
 
+    Route::group([
+        'prefix'    => 'tags',
+        'as'        => 'tag.'
+    ],function(){
+        Route::get('/','TagController@index')->name('list');
+        Route::get('/create','TagController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','TagController@createUpdateForm')->name('edit');
+        Route::post('storeUpdate/{id?}','TagController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','TagController@showRemove')->name('show');
+        Route::post('remove','TagController@showRemove')->name('remove');
     });
-    Route::group([],function(){
-
-    });
-    Route::group([],function(){
-
-    });
-    Route::group([],function(){
-
-    });
-    Route::group([],function(){
-
+    Route::group([
+        'prefix'    => 'users',
+        'as'        => 'user.'
+    ],function(){
+        Route::get('/','UserController@index')->name('list');
+        Route::get('/create','UserController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','UserController@createUpdateForm')->name('edit');
+        Route::post('storeUpdate/{id?}','UserController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','UserController@showRemove')->name('show');
+        Route::post('remove','UserController@showRemove')->name('remove');
     });
 });
-Route::get('categories','Admin\CategoryController@index');
-Route::get('createUpdateForm/{id?}','Admin\CategoryController@createUpdateForm');
-Route::post('createUpdateRequest/{id?}','Admin\CategoryController@createUpdateRequest')->name('createUpdateRequest');
-
-Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
-    try{
-        $command = new Process('composer require laravelcollective/html');
-        $command->setWorkingDirectory(base_path());
-        $command->run();
-        if($command->isSuccessful()){
-            dd($command->getOutput());
-        } else {
-            throw new ProcessFailedException($command);
-        }
-        return view('admin.pages.plugins.create');
-    }catch (Exception $exception){
-        dd($exception->getMessage());
-    }
-})->name('uploadPlugins');
+//Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
+//    try{
+//        $command = new Process('composer require laravelcollective/html');
+//        $command->setWorkingDirectory(base_path());
+//        $command->run();
+//        if($command->isSuccessful()){
+//            dd($command->getOutput());
+//        } else {
+//            throw new ProcessFailedException($command);
+//        }
+//        return view('admin.pages.plugins.create');
+//    }catch (Exception $exception){
+//        dd($exception->getMessage());
+//    }
+//})->name('uploadPlugins');

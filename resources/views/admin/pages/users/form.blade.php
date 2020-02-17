@@ -11,8 +11,8 @@
                                 <div class="col-md-12">
                                     {!!
                                         Form::model(@$data['formData'], [
-                                            'route' => ['admin.category.storeUpdate', @$data['formData']->id],
-                                            'id'    => 'categoryForm'
+                                            'route' => ['admin.user.storeUpdate', @$data['formData']->id],
+                                            'id'    => 'userForm'
                                         ])
                                     !!}
                                     <div class="form-group">
@@ -20,18 +20,15 @@
                                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('slug', 'Slug', ['class' => 'control-label']) !!}
-                                        {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+                                        {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
+                                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('parent_id', 'Parent Category', ['class' => 'control-label']) !!}
-                                        {!! Form::select('parent_id', @$data['getAllParentList'], null, [
-                                                    'class'         => 'form-control',
-                                                    'placeholder'   => 'Please select option'
-                                            ]) !!}
+                                        {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
+                                        {!! Form::password('password', ['class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-success btn-sm" type="submit">Submit</button>
+                                        <button class="btn btn-success btn-sm" type="button">Submit</button>
                                     </div>
                                     {!! Form::close() !!}
                                 </div>

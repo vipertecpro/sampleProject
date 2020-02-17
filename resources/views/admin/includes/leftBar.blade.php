@@ -4,33 +4,35 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uil uil-airplay"></i></div><span class="badge badge-pill badge-success float-right">3</span>
+                    <a href="{{ route('admin.dashboard') }}" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-airplay"></i>
+                        </div>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('admin.category.list') }}" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-list-ul"></i>
                         </div>
                         <span>Categories</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
+                        <li><a href="{{ route('admin.category.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.category.create') }}">Create New</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('admin.tag.list') }}" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-tag"></i>
                         </div>
                         <span>Tags</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
+                        <li><a href="{{ route('admin.tag.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.tag.create') }}">Create New</a></li>
                     </ul>
                 </li>
                 <li>
@@ -125,14 +127,15 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('admin.user.list') }}" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-users-alt"></i></div>
+                            <i class="uil uil-users-alt"></i>
+                        </div>
                         <span>Users</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
+                        <li><a href="{{ route('admin.user.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.user.create') }}">Create New</a></li>
                     </ul>
                 </li>
                 <hr>

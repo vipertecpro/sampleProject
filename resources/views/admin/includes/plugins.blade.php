@@ -19,33 +19,6 @@
         <script src="{{ asset('admin/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('admin/js/pages/datatables.init.js') }}"></script>
         {!! $data['pageData']->scripts() !!}
-        <script>
-            $(document).on('click','.view',function () {
-                window.location.href = $(this).attr('data-url');
-            });
-            $(document).on('click','.remove',function () {
-                var table = $('#dataTableBuilder').DataTable();
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type: 'POST',
-                    url: $(this).attr('data-url'),
-                    data: {
-                        category_id: $(this).attr('data-id'),
-                    },
-                    dataType: 'json',
-                    success: function(data) {
-                        table.ajax.reload();
-                    },
-                    error: function(data) {
-                        console.log(data);
-                    }
-                });
-            });
-        </script>
     @endpush
 @endif
 

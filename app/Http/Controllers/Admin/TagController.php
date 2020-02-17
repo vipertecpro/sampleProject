@@ -4,35 +4,34 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Taxonomy;
-use App\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     public function __construct(){
 
     }
     /*
-     * Def : List of all categories
+     * Def : List of all tags
      * */
     public function index(Builder $builder){
         try{
             if (request()->ajax()) {
-                return DataTables::of(Taxonomy::where('type','category')->latest()->get())
+                return DataTables::of(Taxonomy::where('type','tag')->latest()->get())
                         ->addIndexColumn()
-                        ->addColumn('action',function(Taxonomy $category){
+                        ->addColumn('action',function(Taxonomy $tag){
                             return ' <div class="btn-group btn-group-sm" role="group">
-                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.category.show',$category->id).'" title="View Taxonomy">
+                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.tag.show',$tag->id).'" title="View Taxonomy">
                                             <i class="uil uil-eye"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-warning edit" data-url="'.route('admin.category.edit',$category->id).'" title="Edit Taxonomy">
+                                        <button type="button" class="btn btn-sm btn-warning edit" data-url="'.route('admin.tag.edit',$tag->id).'" title="Edit Taxonomy">
                                             <i class="uil uil-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.category.remove').'" data-id="'.$category->id.'" title="Remove Taxonomy">
+                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.tag.remove').'" data-id="'.$tag->id.'" title="Remove Taxonomy">
                                             <i class="uil uil-trash"></i>
                                             </button>
                                     </div>';
@@ -53,20 +52,20 @@ class CategoryController extends Controller
                 'buttons'       => [
                     [
                         'extend'    => 'excelHtml5',
-                        'title'     => 'Categories_Data_'.date('Y-m-d_h-i-s')
+                        'title'     => 'Tags_Data_'.date('Y-m-d_h-i-s')
                     ],
                     [
                         'extend'    => 'pdfHtml5',
-                        'title'     => 'Categories_Data_'.date('Y-m-d_h-i-s')
+                        'title'     => 'Tags_Data_'.date('Y-m-d_h-i-s')
                     ],
                     'copy', 'print'
                 ]
             ]);
             $data = [
-                'pageType'      => 'category',
-                'createBtnUrl'  => route('admin.category.create'),
-                'pageTitle'     => 'Category Listing',
-                'pageInfo'      => 'Categories are a way of grouping blog, product, media, page and news',
+                'pageType'      => 'tag',
+                'createBtnUrl'  => route('admin.tag.create'),
+                'pageTitle'     => 'Tag Listing',
+                'pageInfo'      => 'A tag is a keyword or term assigned to a piece of information.',
                 'pageData'      => $html
             ];
             return view('admin.pages.index',compact('data'));
@@ -80,27 +79,27 @@ class CategoryController extends Controller
     public function createUpdateForm($id = 0){
          if($id === 0){
              $data = [
-                 'pageTitle'        => 'Category Create',
-                 'pageInfo'         => 'Create category',
+                 'pageTitle'        => 'Tag Create',
+                 'pageInfo'         => 'Create tag',
                  'formType'         => 'create',
                  'formData'         => [],
-                 'getAllParentList' => Taxonomy::where('type','category')
-                                         ->where('parent_id','0')
-                                         ->pluck('name','id')
+                 'getAllParentList' => Taxonomy::where('type','tag')
+                                                 ->where('parent_id','0')
+                                                 ->pluck('name','id')
              ];
          }else{
              $data = [
-                 'pageTitle'        => 'Category Edit',
-                 'pageInfo'         => 'Update/Edit Category',
+                 'pageTitle'        => 'Tag Edit',
+                 'pageInfo'         => 'Update/Edit Tag',
                  'formType'         => 'edit',
                  'formData'         => Taxonomy::findOrFail($id),
-                 'getAllParentList' => Taxonomy::where('type','category')
-                                                ->where('id','!=',$id)
-                                                ->where('parent_id','0')
-                                                ->pluck('name','id')
+                 'getAllParentList' => Taxonomy::where('type','tag')
+                                                 ->where('id','!=',$id)
+                                                 ->where('parent_id','0')
+                                                 ->pluck('name','id')
              ];
          }
-        return view('admin.pages.categories.form',compact('data'));
+        return view('admin.pages.tags.form',compact('data'));
     }
 
     public function createUpdateRequest(Request $request, $id = 0){
@@ -130,10 +129,10 @@ class CategoryController extends Controller
         }
         $data = [
             'pageTitle'        => 'View Taxonomy',
-            'pageInfo'         => 'Here you can view the details of category.',
+            'pageInfo'         => 'Here you can view the details of tag.',
             'formData'         => Taxonomy::findOrFail($id),
             'getAllParentList' => []
         ];
-        return view('admin.pages.categories.view',compact('data'));
+        return view('admin.pages.tags.view',compact('data'));
     }
 }
