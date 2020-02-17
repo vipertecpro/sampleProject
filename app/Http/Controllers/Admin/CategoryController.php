@@ -92,7 +92,7 @@ class CategoryController extends Controller
                      'pageTitle' => 'Category Edit',
                      'pageInfo'  => 'Update/Edit Category',
                      'formType'  => 'create',
-                     'formData'  => User::findOrFail($id),
+                     'formData'  => User::findOrFail((int)$id),
                  ];
              }
             return view('admin.pages.categories.form',compact('data'));
