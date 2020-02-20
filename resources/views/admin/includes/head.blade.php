@@ -15,4 +15,5 @@
     <link href="{{ asset('admin/css/unicons-embedded.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet" type="text/css" />
+    @stack('custom_page_css')
 </head>

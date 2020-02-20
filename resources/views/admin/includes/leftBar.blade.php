@@ -48,14 +48,14 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('admin.media.list') }}" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-image"></i></div>
                         <span>Media</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
+                        <li><a href="{{ route('admin.media.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.media.create') }}">Create New</a></li>
                     </ul>
                 </li>
                 <li>

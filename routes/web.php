@@ -82,6 +82,17 @@ Route::group([
         Route::get('view/{id}','NewsController@showRemove')->name('show');
         Route::post('remove','NewsController@showRemove')->name('remove');
     });
+    Route::group([
+        'prefix'    => 'media',
+        'as'        => 'media.'
+    ],function(){
+        Route::get('/','MediaController@index')->name('list');
+        Route::get('/create','MediaController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','MediaController@createUpdateForm')->name('edit');
+        Route::post('storeUpdate/{id?}','MediaController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','MediaController@showRemove')->name('show');
+        Route::post('remove','MediaController@showRemove')->name('remove');
+    });
 });
 //Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
 //    try{

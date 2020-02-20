@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class,50)->create();
         factory(\App\Taxonomy::class,50)->create();
         factory(\App\Post::class,50)->create();
+        factory(\App\Media::class,50)->create();
     }
 }

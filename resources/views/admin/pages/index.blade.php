@@ -7,6 +7,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="btn-group btn-group-sm float-right mb-1" role="group">
@@ -43,3 +44,9 @@
     </div>
     @include('admin.includes.plugins',['plugin' => ['name' => 'dataTables']])
 @endsection
+
+@push('custom_page_css')
+    @if(Route::currentRouteName() === 'admin.media.list')
+        <link href="{{ asset('admin/css/mediaTable.css') }}" rel="stylesheet"/>
+    @endif
+@endpush

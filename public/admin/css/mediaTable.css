@@ -1,0 +1,142 @@
+#dataTableBuilder thead{
+    display: none;
+}
+#dataTableBuilder tbody tr {
+    display: inline-grid;
+    width: 18%;
+    position: relative;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 5px;
+    margin: 10px 10px;
+    border-left: 2px solid red;
+}
+#dataTableBuilder tbody tr:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+#dataTableBuilder td,#dataTableBuilder th {
+    padding: 2px;
+    vertical-align: top;
+    border-top: 0 solid #eff2f7;
+    margin: 0;
+}
+#dataTableBuilder .actionBtn {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+}
+#dataTableBuilder .mediaImg{
+    width: 100%;
+    object-fit: cover;
+}
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+    #dataTableBuilder tbody tr {
+        display: inline-grid;
+        width: 23%;
+        position: relative;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 5px;
+        margin: 10px 10px;
+    }
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    #dataTableBuilder tbody tr {
+        display: inline-grid;
+        width: 30%;
+        position: relative;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 5px;
+        margin: 10px 10px;
+    }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    #dataTableBuilder tbody tr {
+        display: inline-grid;
+        width: 30%;
+        position: relative;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 5px;
+        margin: 10px 10px;
+    }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+    #dataTableBuilder tbody tr {
+        display: inline-grid;
+        width: 30%;
+        position: relative;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 5px;
+        margin: 10px 10px;
+    }
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    #dataTableBuilder tbody tr {
+        display: inline-grid;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 10px;
+        margin: 10px 20px 10px 0;
+    }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    #dataTableBuilder tbody tr {
+        display: inline-grid;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 5px;
+        margin: 10px auto;
+    }
+}
