@@ -22,6 +22,14 @@
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
                                                 <i class="uil uil-pen"></i> Create User
                                             </a>
+                                        @elseif($data['pageType'] === 'blog')
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                                <i class="uil uil-pen"></i> Create Blog
+                                            </a>
+                                        @elseif($data['pageType'] === 'news')
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                                <i class="uil uil-pen"></i> Create News
+                                            </a>
                                         @endif
                                     </div>
                                     {!! $data['pageData']->table() !!}

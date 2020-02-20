@@ -92,26 +92,26 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('admin.blog.list') }}" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-postcard"></i></div>
-                        <span>Blogs</span>
+                        <span>Blog</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
+                        <li><a href="{{ route('admin.blog.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.blog.create') }}">Create New</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                    <a href="{{ route('admin.news.list') }}" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-newspaper"></i>
                         </div>
                         <span>News</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
+                        <li><a href="{{ route('admin.news.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.news.create') }}">Create New</a></li>
                     </ul>
                 </li>
                 <li>

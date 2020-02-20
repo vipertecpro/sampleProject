@@ -24,4 +24,7 @@ class Post extends Model
         'type',
         'status',
     ];
+    public function users(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }

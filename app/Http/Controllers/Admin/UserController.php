@@ -40,7 +40,10 @@ class UserController extends Controller
             }
             $html = $builder->columns([
                 ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'S.No.', 'width' => '10px'],
-                ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
+                ['data' => 'firstName', 'name' => 'firstName', 'title' => 'First Name'],
+                ['data' => 'lastName', 'name' => 'lastName', 'title' => 'Last Name'],
+                ['data' => 'username', 'name' => 'username', 'title' => 'Username'],
+                ['data' => 'mobile', 'name' => 'mobile', 'title' => 'Mobile'],
                 ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
                 ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false],
             ])->parameters([
