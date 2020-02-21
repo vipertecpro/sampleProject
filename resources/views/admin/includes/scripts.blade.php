@@ -8,3 +8,4 @@
 @stack('plugin_script')
 <script src="{{ asset('admin/js/app.js') }}"></script>
 <script src="{{ asset('admin/js/custom.js') }}"></script>
+@stack('custom_page_js')

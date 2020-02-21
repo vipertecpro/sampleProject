@@ -50,3 +50,9 @@
         <link href="{{ asset('admin/css/mediaTable.css') }}" rel="stylesheet"/>
     @endif
 @endpush
+
+@push('custom_page_js')
+    @if(Route::currentRouteName() === 'admin.media.list')
+        <script src="{{ asset('admin/js/clipboard.min.js') }}" type="text/javascript"></script>
+    @endif
+@endpush
