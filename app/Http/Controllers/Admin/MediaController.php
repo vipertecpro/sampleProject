@@ -7,6 +7,7 @@ use App\Media;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
 
@@ -185,6 +186,17 @@ class MediaController extends Controller
 
     public function createUpdateRequest(Request $request, $id = 0){
         try{
+            $validator = Validator::make($request->all(),[
+                'file_upload'   => 'required',
+                'file_upload.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+            if($validator->fails()){
+                return response()->json([
+                    'status'        => 'error',
+                    'message'       => $validator->getMessageBag(),
+                    'requestData'   => $request->all()
+                ]);
+            }
             DB::table('medias')->updateOrInsert([
 
             ]);

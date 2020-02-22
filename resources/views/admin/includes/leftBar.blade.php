@@ -4,7 +4,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="{{ route('admin.dashboard') }}" class="waves-effect">
+                    <a href="javascript:void(0);" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-airplay"></i>
                         </div>
@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.category.list') }}" class="has-arrow waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-list-ul"></i>
                         </div>
@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('admin.tag.list') }}" class="has-arrow waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-tag"></i>
                         </div>
@@ -48,7 +48,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('admin.media.list') }}" class="has-arrow waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-image"></i></div>
                         <span>Media</span>
@@ -92,7 +92,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('admin.blog.list') }}" class="has-arrow waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-postcard"></i></div>
                         <span>Blog</span>
@@ -103,7 +103,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('admin.news.list') }}" class="has-arrow waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-newspaper"></i>
                         </div>
@@ -127,7 +127,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('admin.user.list') }}" class="has-arrow waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-users-alt"></i>
                         </div>
@@ -144,14 +144,14 @@
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-cog"></i>
                         </div>
-                        <span>Settings</span>
+                        <span>Configurations</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">General</a></li>
-                        <li><a href="javascript:void(0);">Locations</a></li>
-                        <li><a href="javascript:void(0);">Header</a></li>
-                        <li><a href="javascript:void(0);">Footer</a></li>
-                        <li><a href="javascript:void(0);">Application</a></li>
+                        <li><a href="{{ route('admin.config.general') }}">General</a></li>
+                        <li><a href="{{ route('admin.config.locations') }}">Locations</a></li>
+                        <li><a href="{{ route('admin.config.header') }}">Header</a></li>
+                        <li><a href="{{ route('admin.config.footer') }}">Footer</a></li>
+                        <li><a href="{{ route('admin.config.app') }}">Application</a></li>
                     </ul>
                 </li>
             </ul>

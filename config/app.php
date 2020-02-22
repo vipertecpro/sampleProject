@@ -228,4 +228,8 @@ return [
 
     ],
 
+    /*
+     * Admin Panel Configuration
+     * */
+    'admin_panel_modules'   => env('ADMIN_PANEL_MODULES')
 ];

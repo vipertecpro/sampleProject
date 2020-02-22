@@ -34,8 +34,8 @@ Route::group([
         Route::get('/create','CategoryController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','CategoryController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','CategoryController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','CategoryController@showRemove')->name('show');
-        Route::post('remove','CategoryController@showRemove')->name('remove');
+        Route::get('view/{id}','CategoryController@showCategory')->name('show');
+        Route::post('remove','CategoryController@removeCategory')->name('remove');
     });
 
     Route::group([
@@ -46,8 +46,8 @@ Route::group([
         Route::get('/create','TagController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','TagController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','TagController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','TagController@showRemove')->name('show');
-        Route::post('remove','TagController@showRemove')->name('remove');
+        Route::get('view/{id}','TagController@showTag')->name('show');
+        Route::post('remove','TagController@removeTag')->name('remove');
     });
     Route::group([
         'prefix'    => 'users',
@@ -57,8 +57,8 @@ Route::group([
         Route::get('/create','UserController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','UserController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','UserController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','UserController@showRemove')->name('show');
-        Route::post('remove','UserController@showRemove')->name('remove');
+        Route::get('view/{id}','UserController@showUser')->name('show');
+        Route::post('remove','UserController@removeUser')->name('remove');
     });
     Route::group([
         'prefix'    => 'blogs',
@@ -68,8 +68,8 @@ Route::group([
         Route::get('/create','PostController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','PostController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','PostController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','PostController@showRemove')->name('show');
-        Route::post('remove','PostController@showRemove')->name('remove');
+        Route::get('view/{id}','PostController@showBlogs')->name('show');
+        Route::post('remove','PostController@removeBlog')->name('remove');
     });
     Route::group([
         'prefix'    => 'news',
@@ -79,7 +79,7 @@ Route::group([
         Route::get('/create','NewsController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','NewsController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','NewsController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','NewsController@showRemove')->name('show');
+        Route::get('view/{id}','NewsController@showNews')->name('show');
         Route::post('remove','NewsController@showRemove')->name('remove');
     });
     Route::group([
@@ -89,9 +89,20 @@ Route::group([
         Route::get('/','MediaController@index')->name('list');
         Route::get('/create','MediaController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','MediaController@createUpdateForm')->name('edit');
-        Route::post('storeUpdate/{id?}','MediaController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','MediaController@showRemove')->name('show');
+        Route::post('/storeUpdate/{id?}','MediaController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','MediaController@showMedia')->name('show');
         Route::post('remove','MediaController@showRemove')->name('remove');
+    });
+
+    Route::group([
+        'prefix'    => 'config',
+        'as'        => 'config.'
+    ],function(){
+        Route::get('/general','ConfigurationController@general')->name('general');
+        Route::get('/locations','ConfigurationController@locations')->name('locations');
+        Route::get('/header','ConfigurationController@header')->name('header');
+        Route::get('/footer','ConfigurationController@footer')->name('footer');
+        Route::get('/app','ConfigurationController@app')->name('app');
     });
 });
 //Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {

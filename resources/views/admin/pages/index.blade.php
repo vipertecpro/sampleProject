@@ -31,6 +31,10 @@
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
                                                 <i class="uil uil-pen"></i> Create News
                                             </a>
+                                        @elseif($data['pageType'] === 'media')
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                                <i class="uil uil-pen"></i> Create Media
+                                            </a>
                                         @endif
                                     </div>
                                     {!! $data['pageData']->table() !!}
