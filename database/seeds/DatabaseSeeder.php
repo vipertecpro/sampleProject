@@ -13,9 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $adminModulesList = explode('|', env('ADMIN_PANEL_MODULES'));
         // $this->call(UsersTableSeeder::class);
-        if(in_array('users',explode('|', env('ADMIN_PANEL_MODULES')), true)) {
-            factory(\App\User::class, 50)->create();
-        }
+        factory(\App\User::class, 50)->create();
         if(array_intersect($adminModulesList, ['categories','tags'])) {
             factory(\App\Taxonomy::class,50)->create();
         }

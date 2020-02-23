@@ -20,9 +20,10 @@ Route::get('/', function () {
     return view('admin.pages.dashboard');
 });
 Route::group([
-    'prefix'    => 'admin',
-    'as'        => 'admin.',
-    'namespace' => 'Admin'
+    'prefix'        => 'admin',
+    'as'            => 'admin.',
+    'namespace'     => 'Admin',
+    'middleware'    => 'config'
 ],function(){
     Route::get('/','MainController@index')->name('index');
     Route::get('/dashboard','MainController@dashboard')->name('dashboard');

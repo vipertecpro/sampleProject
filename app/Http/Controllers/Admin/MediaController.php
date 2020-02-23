@@ -14,7 +14,6 @@ use Yajra\DataTables\Html\Builder;
 class MediaController extends Controller
 {
     public function __construct(){
-
     }
     /*
      * Def : List of all media
