@@ -11,6 +11,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -60,28 +61,32 @@
                         </ul>
                     </li>
                 @endif
-                <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
-                        <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-grids"></i></div>
-                        <span>Pages</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
-                        <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-cart"></i></div>
-                        <span>Products</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
-                    </ul>
-                </li>
+                @if(in_array('pages',$adminPanelModules, true))
+                    <li>
+                        <a href="javascript:void(0);" class="has-arrow waves-effect">
+                            <div class="d-inline-block icons-sm mr-1">
+                                <i class="uil uil-grids"></i></div>
+                            <span>Pages</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="javascript:void(0);">Listing</a></li>
+                            <li><a href="javascript:void(0);">Create New</a></li>
+                        </ul>
+                    </li>
+                @endif
+                @if(in_array('products',$adminPanelModules, true))
+                    <li>
+                        <a href="javascript:void(0);" class="has-arrow waves-effect">
+                            <div class="d-inline-block icons-sm mr-1">
+                                <i class="uil uil-cart"></i></div>
+                            <span>Products</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="javascript:void(0);">Listing</a></li>
+                            <li><a href="javascript:void(0);">Create New</a></li>
+                        </ul>
+                    </li>
+                @endif
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">

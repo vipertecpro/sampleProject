@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    @include('admin.includes.plugins',['plugin' => ['name' => 'dataTables']])
+    <x-admin-panel.includes.plugins :data="$data"/>
 @endsection
 
 @push('custom_page_css')

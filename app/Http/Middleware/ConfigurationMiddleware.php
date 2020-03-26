@@ -2,14 +2,14 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ConfigurationMiddleware
 {
-
+    protected $except = [
+        'users'
+    ];
     /**
      * Handle an incoming request.
      *
@@ -20,8 +20,10 @@ class ConfigurationMiddleware
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $adminModulesList = explode('|', env('ADMIN_PANEL_MODULES'));
-        if(!in_array($request->segment(2),$adminModulesList, true)){
+        $adminModulesList = array_merge(explode('|', env('ADMIN_PANEL_MODULES')),$this->except);
+        if(!in_array($request->segment(2),$adminModulesList, true)  ){
+
+            dd(";");
             abort(404);
         }
         return $next($request);

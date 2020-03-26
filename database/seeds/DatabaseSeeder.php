@@ -23,5 +23,8 @@ class DatabaseSeeder extends Seeder
         if(in_array('media', $adminModulesList, true)){
             factory(\App\Media::class,50)->create();
         }
+        if(in_array('products', $adminModulesList, true)){
+            factory(\App\Product::class,50)->create();
+        }
     }
 }

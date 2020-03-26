@@ -65,6 +65,12 @@ class CreateConfigurationsTable extends Migration
             $table->timestamp('failed_at')->useCurrent();
         });
         if(array_intersect($this->adminModulesList, ['categories','tags'])) {
+            Artisan::call('make:controller',[
+                'name'  => 'Admin/CategoryController'
+            ]);
+            Artisan::call('make:controller',[
+                'name'  => 'Admin/TagController'
+            ]);
             Schema::create('taxonomies', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('name');
@@ -77,7 +83,31 @@ class CreateConfigurationsTable extends Migration
                 $table->softDeletes();
             });
         }
-        if(array_intersect($this->adminModulesList, ['blogs','news'])){
+        if(array_intersect($this->adminModulesList, ['blogs','news','pages'])){
+            Artisan::call('make:controller',[
+                'name'  => 'Admin/PostController'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'Post'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'PostCategory'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'PostComment'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'PostMeta'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'PostTag'
+            ]);
+            Artisan::call('make:controller',[
+                'name'  => 'Admin/NewsController'
+            ]);
+            Artisan::call('make:controller',[
+                'name'  => 'Admin/PageController'
+            ]);
             Schema::create('posts', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->bigInteger('user_id');
@@ -87,7 +117,7 @@ class CreateConfigurationsTable extends Migration
                 $table->longText('summary');
                 $table->longText('content');
                 $table->enum('type',[
-                    'blog','news'
+                    'blog','news','page'
                 ]);
                 $table->enum('status',[
                     'published','draft'
@@ -102,31 +132,37 @@ class CreateConfigurationsTable extends Migration
                 $table->longText('content');
                 $table->timestamps();
             });
-            Schema::create('post_tags', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->bigInteger('post_id');
-                $table->bigInteger('tag_id');
-                $table->timestamps();
-            });
-            Schema::create('post_categories', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->bigInteger('post_id');
-                $table->bigInteger('category_id');
-                $table->timestamps();
-            });
-            Schema::create('post_comments', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->bigInteger('user_id')->default(0);
-                $table->bigInteger('post_id');
-                $table->bigInteger('parent_id')->default(0);
-                $table->string('title');
-                $table->string('content');
-                $table->enum('status',[
-                    'published','draft'
-                ]);
-                $table->timestamps();
-                $table->softDeletes();
-            });
+            if(in_array( 'tags',$this->adminModulesList, true)){
+                Schema::create('post_tags', function (Blueprint $table) {
+                    $table->bigIncrements('id');
+                    $table->bigInteger('post_id');
+                    $table->bigInteger('tag_id');
+                    $table->timestamps();
+                });
+            }
+            if(in_array( 'categories',$this->adminModulesList, true)){
+                Schema::create('post_categories', function (Blueprint $table) {
+                    $table->bigIncrements('id');
+                    $table->bigInteger('post_id');
+                    $table->bigInteger('category_id');
+                    $table->timestamps();
+                });
+            }
+            if(in_array( 'comments',$this->adminModulesList, true)){
+                Schema::create('post_comments', function (Blueprint $table) {
+                    $table->bigIncrements('id');
+                    $table->bigInteger('user_id')->default(0);
+                    $table->bigInteger('post_id');
+                    $table->bigInteger('parent_id')->default(0);
+                    $table->string('title');
+                    $table->string('content');
+                    $table->enum('status',[
+                        'published','draft'
+                    ]);
+                    $table->timestamps();
+                    $table->softDeletes();
+                });
+            }
         }
         if(in_array('media',$this->adminModulesList, true)){
             Artisan::call('make:controller',[
@@ -145,19 +181,83 @@ class CreateConfigurationsTable extends Migration
                 $table->softDeletes();
             });
         }
+        if(in_array('products',$this->adminModulesList, true)){
+            Artisan::call('make:controller',[
+                'name'  => 'Admin/ProductController'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'Product'
+            ]);
+            Schema::create('products', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->bigInteger('user_id');
+                $table->bigInteger('product_sku');
+                $table->string('product_name');
+                $table->longText('product_short_desc');
+                $table->longText('product_long_desc');
+                $table->bigInteger('product_price');
+                $table->enum('product_in_stock',[
+                    'yes','no'
+                ]);
+                $table->timestamps();
+                $table->softDeletes();
+            });
+            Artisan::call('make:model',[
+                'name'  => 'ProductAsset'
+            ]);
+            Schema::create('product_assets', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->bigInteger('product_id');
+                $table->enum('asset_type',[
+                    'video','audio','document','image'
+                ]);
+                $table->longText('asset_url');
+                $table->enum('is_visible',[
+                    'yes','no'
+                ]);
+                $table->bigInteger('sequence_number');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+            Artisan::call('make:model',[
+                'name'  => 'ProductFieldGroup'
+            ]);
+            Schema::create('product_field_groups', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->longText('field_group_name');
+                $table->longText('field_group_slug');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+            Artisan::call('make:model',[
+                'name'  => 'ProductField'
+            ]);
+            Schema::create('product_fields', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->enum('field_type',[
+                    'text','table'
+                ]);
+                $table->string('field_key');
+                $table->longText('field_value');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
+//        if(in_array('orders',$this->adminModulesList, true)){
+//
+//        }
         /*
          * In case if you want controller and model of Media to be removed automatically.
          * Just uncomment below else part.
          * */
 //        else{
-//            Artisan::call('remove:controller',[
+//            A0rtisan::call('remove:controller',[
 //                'name'  => 'Admin/MediaController'
 //            ]);
 //            Artisan::call('remove:model',[
 //                'name'  => 'Media'
 //            ]);
 //        }
-
         Artisan::call('optimize:clear');
         Artisan::call('config:cache');
         Artisan::call('config:clear');
@@ -190,5 +290,12 @@ class CreateConfigurationsTable extends Migration
         * Media Drop
         * */
         Schema::dropIfExists('medias');
+        /*
+        * Products Drop
+        * */
+        Schema::dropIfExists('products');
+        Schema::dropIfExists('product_assets');
+        Schema::dropIfExists('product_field_groups');
+        Schema::dropIfExists('product_fields');
     }
 }

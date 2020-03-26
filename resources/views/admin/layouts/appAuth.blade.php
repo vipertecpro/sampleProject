@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('admin.includes.head')
+<x-admin-panel.includes.head />
 <body data-topbar="colored">
     <div id="layout-wrapper">
-        @include('admin.includes.header')
-        @include('admin.includes.leftBar')
+        <x-admin-panel.includes.header />
+        <x-admin-panel.includes.left-side-bar />
         <div class="main-content">
             <div class="page-content">
-                @include('admin.includes.pageTitleBox')
+                <x-admin-panel.includes.page-title-box :data="$data"/>
                 @yield('page_content')
             </div>
-            @include('admin.includes.footer')
+            <x-admin-panel.includes.footer />
         </div>
     </div>
-    @include('admin.includes.rightBar')
-
+    <x-admin-panel.includes.right-side-bar />
     <div class="rightbar-overlay"></div>
-    @include('admin.includes.scripts')
+    <x-admin-panel.includes.scripts />
 </body>
 </html>
