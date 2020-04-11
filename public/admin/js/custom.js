@@ -12,7 +12,7 @@ $(document).on('click','.remove',function () {
         }
     });
     $.ajax({
-        type: 'POST',
+        type: 'DELETE',
         url: $(this).attr('data-url'),
         data: {
             id: $(this).attr('data-id'),

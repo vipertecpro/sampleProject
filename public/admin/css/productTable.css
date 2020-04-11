@@ -1,0 +1,29 @@
+/*#dataTableBuilder thead{*/
+/*    display:none;*/
+/*}*/
+/*#dataTableBuilder tbody tr.theadClone{*/
+/*    !*background-color: blue;*!*/
+/*    display: block;*/
+/*    position: relative;*/
+/*    width: 25%;*/
+/*}*/
+
+/*#dataTableBuilder tbody tr.theadClone th{*/
+/*    background-color: blue;*/
+/*    display:block;*/
+/*    position:relative;*/
+/*}*/
+
+/*#dataTableBuilder tbody tr.rowDataStyle{*/
+/*    !*background-color: yellow;*!*/
+/*    display: block;*/
+/*    position: relative;*/
+/*    width: 75%;*/
+/*    float: inline-end;*/
+/*}*/
+
+/*#dataTableBuilder tbody tr.rowDataStyle td{*/
+/*    background-color: yellow;*/
+/*    display:block;*/
+/*    position:relative;*/
+/*}*/

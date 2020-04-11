@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class ConfigurationMiddleware
 {
     protected $except = [
-        'users'
+        'users',
+        'dashboard'
     ];
     /**
      * Handle an incoming request.
@@ -22,8 +23,6 @@ class ConfigurationMiddleware
     {
         $adminModulesList = array_merge(explode('|', env('ADMIN_PANEL_MODULES')),$this->except);
         if(!in_array($request->segment(2),$adminModulesList, true)  ){
-
-            dd(";");
             abort(404);
         }
         return $next($request);

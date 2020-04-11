@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-
 Route::get('/', function () {
-    return view('admin.pages.dashboard');
+    return redirect()->route('admin.dashboard');
 });
 Route::group([
-    'prefix'        => 'admin',
+    'prefix'        => env('ADMIN_URL_PREFIX'),
     'as'            => 'admin.',
     'namespace'     => 'Admin',
     'middleware'    => 'config'
@@ -36,7 +35,7 @@ Route::group([
         Route::get('/edit/{id}','CategoryController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','CategoryController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','CategoryController@showCategory')->name('show');
-        Route::post('remove','CategoryController@removeCategory')->name('remove');
+        Route::delete('remove','CategoryController@removeCategory')->name('remove');
     });
 
     Route::group([
@@ -48,7 +47,7 @@ Route::group([
         Route::get('/edit/{id}','TagController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','TagController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','TagController@showTag')->name('show');
-        Route::post('remove','TagController@removeTag')->name('remove');
+        Route::delete('remove','TagController@removeTag')->name('remove');
     });
     Route::group([
         'prefix'    => 'users',
@@ -59,7 +58,7 @@ Route::group([
         Route::get('/edit/{id}','UserController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','UserController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','UserController@showUser')->name('show');
-        Route::post('remove','UserController@removeUser')->name('remove');
+        Route::delete('remove','UserController@removeUser')->name('remove');
     });
     Route::group([
         'prefix'    => 'blogs',
@@ -70,7 +69,7 @@ Route::group([
         Route::get('/edit/{id}','PostController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','PostController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','PostController@showBlogs')->name('show');
-        Route::post('remove','PostController@removeBlog')->name('remove');
+        Route::delete('remove','PostController@removeBlog')->name('remove');
     });
     Route::group([
         'prefix'    => 'news',
@@ -81,7 +80,7 @@ Route::group([
         Route::get('/edit/{id}','NewsController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','NewsController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','NewsController@showNews')->name('show');
-        Route::post('remove','NewsController@showRemove')->name('remove');
+        Route::delete('remove','NewsController@showRemove')->name('remove');
     });
     Route::group([
         'prefix'    => 'media',
@@ -92,7 +91,19 @@ Route::group([
         Route::get('/edit/{id}','MediaController@createUpdateForm')->name('edit');
         Route::post('/storeUpdate/{id?}','MediaController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','MediaController@showMedia')->name('show');
-        Route::post('remove','MediaController@showRemove')->name('remove');
+        Route::delete('remove','MediaController@showRemove')->name('remove');
+    });
+
+    Route::group([
+        'prefix'    => 'products',
+        'as'        => 'product.'
+    ],function(){
+        Route::get('/','ProductController@index')->name('list');
+        Route::get('/create','ProductController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','ProductController@createUpdateForm')->name('edit');
+        Route::post('/storeUpdate/{id?}','ProductController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','ProductController@showProduct')->name('show');
+        Route::delete('remove','ProductController@showRemove')->name('remove');
     });
 
     Route::group([

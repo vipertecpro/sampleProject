@@ -1,10 +1,10 @@
 <head>
     <meta charset="utf-8" />
-    <title>{{ @$data['page_title'] }}</title>
+    <title>{{ @$attributes['data']['page_title'] }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="{{ @$data['meta_description'] }}" name="description" />
-    <meta content="{{ @$data['meta_keywords'] }}" name="keywords" />
-    <meta content="{{ @$data['meta_author'] }}" name="author" />
+    <meta content="{{ @$attributes['data']['meta_description'] }}" name="description" />
+    <meta content="{{ @$attributes['data']['meta_keywords'] }}" name="keywords" />
+    <meta content="{{ @$attributes['data']['meta_author'] }}" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @stack('plugin_css')
     <link href="{{ asset('admin/images/favicon.ico') }}" rel="shortcut icon">

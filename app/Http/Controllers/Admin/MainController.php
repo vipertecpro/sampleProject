@@ -18,6 +18,12 @@ class MainController extends Controller
         return redirect()->route('admin.dashboard');
     }
     public function dashboard(){
-        return view('admin.pages.dashboard');
+        $data = [
+            'pageType'      => 'dashboard',
+            'createBtnUrl'  => route('admin.user.create'),
+            'pageTitle'     => 'Dashboard',
+            'pageInfo'      => 'A dashboard is a user interface that, organizes and presents information in a way that is easy to read.',
+        ];
+        return view('admin.pages.dashboard',compact('data'));
     }
 }

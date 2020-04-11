@@ -7,7 +7,6 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="btn-group btn-group-sm float-right mb-1" role="group">
@@ -20,19 +19,23 @@
                                                 <i class="uil uil-pen"></i> Create Tag
                                             </a>
                                         @elseif($data['pageType'] === 'user')
-                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create User">
                                                 <i class="uil uil-pen"></i> Create User
                                             </a>
                                         @elseif($data['pageType'] === 'blog')
-                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Blog">
                                                 <i class="uil uil-pen"></i> Create Blog
                                             </a>
                                         @elseif($data['pageType'] === 'news')
-                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create News">
                                                 <i class="uil uil-pen"></i> Create News
                                             </a>
+                                        @elseif($data['pageType'] === 'product')
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Product">
+                                                <i class="uil uil-pen"></i> Create Product
+                                            </a>
                                         @elseif($data['pageType'] === 'media')
-                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Media">
                                                 <i class="uil uil-pen"></i> Create Media
                                             </a>
                                         @endif
@@ -52,11 +55,15 @@
 @push('custom_page_css')
     @if(Route::currentRouteName() === 'admin.media.list')
         <link href="{{ asset('admin/css/mediaTable.css') }}" rel="stylesheet"/>
+    @elseif(Route::currentRouteName() === 'admin.product.list')
+        <link href="{{ asset('admin/css/productTable.css') }}" rel="stylesheet"/>
     @endif
 @endpush
 
 @push('custom_page_js')
     @if(Route::currentRouteName() === 'admin.media.list')
         <script src="{{ asset('admin/js/clipboard.min.js') }}" type="text/javascript"></script>
+
+    @elseif(Route::currentRouteName() === 'admin.product.list')
     @endif
 @endpush

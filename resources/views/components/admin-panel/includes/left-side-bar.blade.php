@@ -4,14 +4,14 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect">
+                    <a href="{{ route('admin.dashboard') }}" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
                             <i class="uil uil-airplay"></i>
                         </div>
                         <span>Dashboard</span>
                     </a>
                 </li>
-
+                @if(in_array('categories',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -24,6 +24,8 @@
                         <li><a href="{{ route('admin.category.create') }}">Create New</a></li>
                     </ul>
                 </li>
+                @endif
+                @if(in_array('tags',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -36,6 +38,8 @@
                         <li><a href="{{ route('admin.tag.create') }}">Create New</a></li>
                     </ul>
                 </li>
+                @endif
+                @if(in_array('plugins',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -48,6 +52,7 @@
                         <li><a href="javascript:void(0);">Create New</a></li>
                     </ul>
                 </li>
+                @endif
                 @if(in_array('media',$adminPanelModules, true))
                     <li>
                         <a href="javascript:void(0);" class="has-arrow waves-effect">
@@ -82,22 +87,23 @@
                             <span>Products</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{ route('admin.product.list') }}">Listing</a></li>
+                            <li><a href="{{ route('admin.product.create') }}">Create New</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="has-arrow waves-effect">
+                            <div class="d-inline-block icons-sm mr-1">
+                                <i class="uil uil-shopping-basket"></i></div>
+                            <span>Orders</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
                             <li><a href="javascript:void(0);">Listing</a></li>
                             <li><a href="javascript:void(0);">Create New</a></li>
                         </ul>
                     </li>
                 @endif
-                <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
-                        <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-shopping-basket"></i></div>
-                        <span>Orders</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="javascript:void(0);">Listing</a></li>
-                        <li><a href="javascript:void(0);">Create New</a></li>
-                    </ul>
-                </li>
+                @if(in_array('blogs',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -109,6 +115,8 @@
                         <li><a href="{{ route('admin.blog.create') }}">Create New</a></li>
                     </ul>
                 </li>
+                @endif
+                @if(in_array('news',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -121,6 +129,8 @@
                         <li><a href="{{ route('admin.news.create') }}">Create New</a></li>
                     </ul>
                 </li>
+                @endif
+                @if(in_array('comments',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -133,6 +143,7 @@
                         <li><a href="javascript:void(0);">Create New</a></li>
                     </ul>
                 </li>
+                @endif
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -146,21 +157,6 @@
                     </ul>
                 </li>
                 <hr>
-                <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
-                        <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-cog"></i>
-                        </div>
-                        <span>Configurations</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.config.general') }}">General</a></li>
-                        <li><a href="{{ route('admin.config.locations') }}">Locations</a></li>
-                        <li><a href="{{ route('admin.config.header') }}">Header</a></li>
-                        <li><a href="{{ route('admin.config.footer') }}">Footer</a></li>
-                        <li><a href="{{ route('admin.config.app') }}">Application</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>

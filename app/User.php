@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Traits\Permissions\HasPermissionsTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,HasPermissionsTrait;
     protected $table = 'users';
     /**
      * The attributes that are mass assignable.

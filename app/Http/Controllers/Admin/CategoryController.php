@@ -43,7 +43,7 @@ class CategoryController extends Controller
                 ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'S.No.', 'width' => '10px'],
                 ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
                 ['data' => 'slug', 'name' => 'slug', 'title' => 'Slug'],
-                ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false],
+                ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false,'orderable' => false],
             ])->parameters([
                 'dom'           => 'Blfrtip',
                 'processing'    => true,

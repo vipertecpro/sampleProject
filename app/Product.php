@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
@@ -23,11 +25,11 @@ class Product extends Model
         'product_price',
         'product_in_stock',
     ];
-    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function user(): HasOne
     {
         return $this->hasOne(User::class,'id','user_id');
     }
-    public function productAsset(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function productAsset(): HasMany
     {
         return $this->hasMany(ProductAsset::class,'id','product_id');
     }

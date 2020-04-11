@@ -64,12 +64,51 @@ class CreateConfigurationsTable extends Migration
             $table->longText('exception');
             $table->timestamp('failed_at')->useCurrent();
         });
+        Schema::create('permissions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug');
+            $table->timestamps();
+        });
+        Schema::create('user_permissions', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('permission_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+            $table->primary(['user_id','permission_id']);
+        });
+        Schema::create('roles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug');
+            $table->timestamps();
+        });
+        Schema::create('user_roles', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->primary(['user_id','role_id']);
+        });
+        Schema::create('roles_permissions', function (Blueprint $table) {
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('permission_id');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+            $table->primary(['role_id','permission_id']);
+        });
         if(array_intersect($this->adminModulesList, ['categories','tags'])) {
             Artisan::call('make:controller',[
                 'name'  => 'Admin/CategoryController'
             ]);
+            Artisan::call('make:model',[
+                'name'  => 'Category'
+            ]);
             Artisan::call('make:controller',[
                 'name'  => 'Admin/TagController'
+            ]);
+            Artisan::call('make:model',[
+                'name'  => 'Tag'
             ]);
             Schema::create('taxonomies', function (Blueprint $table) {
                 $table->bigIncrements('id');
@@ -277,6 +316,12 @@ class CreateConfigurationsTable extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_resets');
         Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('permissions');
+        Schema::dropIfExists('user_permissions');
+        Schema::dropIfExists('roles');
+        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('roles_permissions');
+
         /*
          * Post|Categories|Tags|Comments|News Drops
          * */
