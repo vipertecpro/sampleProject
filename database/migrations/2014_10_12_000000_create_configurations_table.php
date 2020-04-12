@@ -313,16 +313,6 @@ class CreateConfigurationsTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('configurations');
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_resets');
-        Schema::dropIfExists('failed_jobs');
-        Schema::dropIfExists('permissions');
-        Schema::dropIfExists('user_permissions');
-        Schema::dropIfExists('roles');
-        Schema::dropIfExists('user_roles');
-        Schema::dropIfExists('roles_permissions');
-
         /*
          * Post|Categories|Tags|Comments|News Drops
          * */
@@ -343,5 +333,16 @@ class CreateConfigurationsTable extends Migration
         Schema::dropIfExists('product_assets');
         Schema::dropIfExists('product_field_groups');
         Schema::dropIfExists('product_fields');
+
+
+        Schema::dropIfExists('roles_permissions');
+        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('roles');
+        Schema::dropIfExists('user_permissions');
+        Schema::dropIfExists('permissions');
+        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('configurations');
     }
 }

@@ -22,8 +22,11 @@ class RoleController extends Controller
         try{
 
             if (request()->ajax()) {
-                return DataTables::of(Role::latest()->get())
+                return DataTables::of(Role::where('slug','!=','admin')->latest()->get())
                         ->addIndexColumn()
+                        ->editColumn('parent_id',function(Role $role){
+                            return $role->parent_id;
+                        })
                         ->addColumn('action',function(Role $role){
                             return ' <div class="btn-group btn-group-sm" role="group">
                                         <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.user.role.show',$role->id).'" title="View Role">
@@ -43,6 +46,7 @@ class RoleController extends Controller
                 ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'S.No.', 'width' => '10px'],
                 ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
                 ['data' => 'slug', 'name' => 'slug', 'title' => 'Slug'],
+                ['data' => 'parent_id', 'name' => 'parent_id', 'title' => 'Parent'],
                 ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false],
             ])->parameters([
                 'dom'           => 'Blfrtip',
