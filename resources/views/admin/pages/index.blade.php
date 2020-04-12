@@ -10,17 +10,25 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="btn-group btn-group-sm float-right mb-1" role="group">
-                                        @if($data['pageType'] === 'category')
+                                        @if($data['pageType'] === 'user')
+                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create User">
+                                                <i class="uil uil-pen"></i> Create User
+                                            </a>
+                                        @elseif($data['pageType'] === 'role')
+                                            <a href="{{ $data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Role">
+                                                <i class="uil uil-pen"></i> Create Role
+                                            </a>
+                                        @elseif($data['pageType'] === 'permission')
+                                            <a href="{{ $data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Permission">
+                                                <i class="uil uil-pen"></i> Create Permission
+                                            </a>
+                                        @elseif($data['pageType'] === 'category')
                                             <a href="{{ $data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Category">
                                                 <i class="uil uil-pen"></i> Create Category
                                             </a>
                                         @elseif($data['pageType'] === 'tag')
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
                                                 <i class="uil uil-pen"></i> Create Tag
-                                            </a>
-                                        @elseif($data['pageType'] === 'user')
-                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create User">
-                                                <i class="uil uil-pen"></i> Create User
                                             </a>
                                         @elseif($data['pageType'] === 'blog')
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Blog">

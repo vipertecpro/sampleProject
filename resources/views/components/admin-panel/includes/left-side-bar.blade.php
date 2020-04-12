@@ -11,6 +11,21 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-users-alt"></i>
+                        </div>
+                        <span>Users</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.user.role.list') }}">Roles</a></li>
+                        <li><a href="{{ route('admin.user.permission.list') }}">Permissions</a></li>
+                        <li><a href="{{ route('admin.user.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.user.create') }}">Create New</a></li>
+                    </ul>
+                </li>
+                <hr>
                 @if(in_array('categories',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
@@ -144,18 +159,6 @@
                     </ul>
                 </li>
                 @endif
-                <li>
-                    <a href="javascript:void(0);" class="has-arrow waves-effect">
-                        <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-users-alt"></i>
-                        </div>
-                        <span>Users</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.user.list') }}">Listing</a></li>
-                        <li><a href="{{ route('admin.user.create') }}">Create New</a></li>
-                    </ul>
-                </li>
                 <hr>
             </ul>
         </div>

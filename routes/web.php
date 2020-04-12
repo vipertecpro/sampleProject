@@ -27,6 +27,39 @@ Route::group([
     Route::get('/','MainController@index')->name('index');
     Route::get('/dashboard','MainController@dashboard')->name('dashboard');
     Route::group([
+        'prefix'    => 'users',
+        'as'        => 'user.'
+    ],function(){
+        Route::get('/','UserController@index')->name('list');
+        Route::get('/create','UserController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','UserController@createUpdateForm')->name('edit');
+        Route::post('storeUpdate/{id?}','UserController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','UserController@showUser')->name('show');
+        Route::delete('remove','UserController@removeUser')->name('remove');
+        Route::group([
+            'prefix'    => 'permissions',
+            'as'        => 'permission.'
+        ],function(){
+            Route::get('/','PermissionController@index')->name('list');
+            Route::get('/create','PermissionController@createUpdateForm')->name('create');
+            Route::get('/edit/{id}','PermissionController@createUpdateForm')->name('edit');
+            Route::post('storeUpdate/{id?}','PermissionController@createUpdateRequest')->name('storeUpdate');
+            Route::get('view/{id}','PermissionController@showUser')->name('show');
+            Route::delete('remove','PermissionController@removeUser')->name('remove');
+        });
+        Route::group([
+            'prefix'    => 'roles',
+            'as'        => 'role.'
+        ],function(){
+            Route::get('/','RoleController@index')->name('list');
+            Route::get('/create','RoleController@createUpdateForm')->name('create');
+            Route::get('/edit/{id}','RoleController@createUpdateForm')->name('edit');
+            Route::post('storeUpdate/{id?}','RoleController@createUpdateRequest')->name('storeUpdate');
+            Route::get('view/{id}','RoleController@showUser')->name('show');
+            Route::delete('remove','RoleController@removeUser')->name('remove');
+        });
+    });
+    Route::group([
         'prefix'    => 'categories',
         'as'        => 'category.'
     ],function(){
@@ -48,17 +81,6 @@ Route::group([
         Route::post('storeUpdate/{id?}','TagController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','TagController@showTag')->name('show');
         Route::delete('remove','TagController@removeTag')->name('remove');
-    });
-    Route::group([
-        'prefix'    => 'users',
-        'as'        => 'user.'
-    ],function(){
-        Route::get('/','UserController@index')->name('list');
-        Route::get('/create','UserController@createUpdateForm')->name('create');
-        Route::get('/edit/{id}','UserController@createUpdateForm')->name('edit');
-        Route::post('storeUpdate/{id?}','UserController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','UserController@showUser')->name('show');
-        Route::delete('remove','UserController@removeUser')->name('remove');
     });
     Route::group([
         'prefix'    => 'blogs',
