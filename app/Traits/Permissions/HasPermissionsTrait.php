@@ -35,22 +35,22 @@ trait HasPermissionsTrait {
         }
         return false;
     }
+    public function roles() {
+        return $this->belongsToMany(Role::class,'users_roles');
+    }
     public function hasRole( ... $roles ): bool{
         foreach ($roles as $role) {
-            if ($this->roles->contains('slug', $role)) {
+            if ($this->roles()->contains('slug', $role)) {
                 return true;
             }
         }
         return false;
     }
-    public function roles() {
-        return $this->belongsToMany(Role::class,'users_roles');
-    }
     public function permissions() {
         return $this->belongsToMany(Permission::class,'users_permissions');
     }
     protected function hasPermission($permission): bool{
-        return (bool) $this->permissions->where('slug', $permission->slug)->count();
+        return (bool) $this->permissions()->where('slug', $permission->slug)->count();
     }
     protected function getAllPermissions(array $permissions) {
         return Permission::whereIn('slug',$permissions)->get();

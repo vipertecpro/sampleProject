@@ -70,7 +70,7 @@ class CreateConfigurationsTable extends Migration
             $table->string('slug');
             $table->timestamps();
         });
-        Schema::create('user_permissions', function (Blueprint $table) {
+        Schema::create('users_permissions', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('permission_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -84,7 +84,7 @@ class CreateConfigurationsTable extends Migration
             $table->bigInteger('parent_id');
             $table->timestamps();
         });
-        Schema::create('user_roles', function (Blueprint $table) {
+        Schema::create('users_roles', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('role_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -316,29 +316,30 @@ class CreateConfigurationsTable extends Migration
         /*
          * Post|Categories|Tags|Comments|News Drops
          * */
-        Schema::dropIfExists('taxonomies');
-        Schema::dropIfExists('posts');
         Schema::dropIfExists('post_metas');
-        Schema::dropIfExists('post_tags');
-        Schema::dropIfExists('post_categories');
         Schema::dropIfExists('post_comments');
-       /*
-        * Media Drop
-        * */
+        Schema::dropIfExists('post_categories');
+        Schema::dropIfExists('post_tags');
+        Schema::dropIfExists('posts');
+        Schema::dropIfExists('taxonomies');
+        /*
+         * Media Drop
+         * */
         Schema::dropIfExists('medias');
         /*
         * Products Drop
         * */
-        Schema::dropIfExists('products');
-        Schema::dropIfExists('product_assets');
-        Schema::dropIfExists('product_field_groups');
         Schema::dropIfExists('product_fields');
-
-
+        Schema::dropIfExists('product_field_groups');
+        Schema::dropIfExists('product_assets');
+        Schema::dropIfExists('products');
+        /*
+         *  Default Drop
+         * */
         Schema::dropIfExists('roles_permissions');
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('users_permissions');
+        Schema::dropIfExists('users_roles');
         Schema::dropIfExists('roles');
-        Schema::dropIfExists('user_permissions');
         Schema::dropIfExists('permissions');
         Schema::dropIfExists('failed_jobs');
         Schema::dropIfExists('password_resets');
