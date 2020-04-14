@@ -34,8 +34,8 @@ Route::group([
         Route::get('/create','UserController@createUpdateForm')->name('create');
         Route::get('/edit/{id}','UserController@createUpdateForm')->name('edit');
         Route::post('storeUpdate/{id?}','UserController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','UserController@showUser')->name('show');
-        Route::delete('remove','UserController@removeUser')->name('remove');
+        Route::get('view/{id}','UserController@showRemove')->name('show');
+        Route::delete('remove','UserController@showRemove')->name('remove');
         Route::group([
             'prefix'    => 'permissions',
             'as'        => 'permission.'
@@ -44,8 +44,8 @@ Route::group([
             Route::get('/create','PermissionController@createUpdateForm')->name('create');
             Route::get('/edit/{id}','PermissionController@createUpdateForm')->name('edit');
             Route::post('storeUpdate/{id?}','PermissionController@createUpdateRequest')->name('storeUpdate');
-            Route::get('view/{id}','PermissionController@showUser')->name('show');
-            Route::delete('remove','PermissionController@removeUser')->name('remove');
+            Route::get('view/{id}','PermissionController@showRemove')->name('show');
+            Route::delete('remove','PermissionController@showRemove')->name('remove');
         });
         Route::group([
             'prefix'    => 'roles',
@@ -55,10 +55,11 @@ Route::group([
             Route::get('/create','RoleController@createUpdateForm')->name('create');
             Route::get('/edit/{id}','RoleController@createUpdateForm')->name('edit');
             Route::post('storeUpdate/{id?}','RoleController@createUpdateRequest')->name('storeUpdate');
-            Route::get('view/{id}','RoleController@showUser')->name('show');
-            Route::delete('remove','RoleController@removeUser')->name('remove');
+            Route::get('view/{id}','RoleController@showRemove')->name('show');
+            Route::delete('remove','RoleController@showRemove')->name('remove');
         });
     });
+
     Route::group([
         'prefix'    => 'categories',
         'as'        => 'category.'
@@ -139,18 +140,3 @@ Route::group([
         Route::get('/app','ConfigurationController@app')->name('app');
     });
 });
-//Route::post('/uploadPlugins', function (\Illuminate\Http\Request $request) {
-//    try{
-//        $command = new Process('composer require laravelcollective/html');
-//        $command->setWorkingDirectory(base_path());
-//        $command->run();
-//        if($command->isSuccessful()){
-//            dd($command->getOutput());
-//        } else {
-//            throw new ProcessFailedException($command);
-//        }
-//        return view('admin.pages.plugins.create');
-//    }catch (Exception $exception){
-//        dd($exception->getMessage());
-//    }
-//})->name('uploadPlugins');

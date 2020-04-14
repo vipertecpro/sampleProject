@@ -18,12 +18,17 @@ class Role extends Model
      */
     protected $fillable = [
         'name',
-        'slug'
+        'slug',
+        'parent_id'
     ];
+
     public function permissions(): BelongsToMany {
         return $this->belongsToMany(Permission::class,'roles_permissions');
     }
     public function users(): BelongsToMany {
         return $this->belongsToMany(User::class,'users_roles');
+    }
+    public function getParentName(): HasOne{
+        return $this->hasOne(__CLASS__,'parent_id');
     }
 }

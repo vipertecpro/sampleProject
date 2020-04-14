@@ -1,7 +1,11 @@
 <?php
 
+use App\Media;
 use App\Permission;
+use App\Post;
+use App\Product;
 use App\Role;
+use App\Taxonomy;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +21,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $adminModulesList = explode('|', env('ADMIN_PANEL_MODULES'));
         Role::create([
            'id'             => 1,
            'name'           => 'Admin',
@@ -28,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'id'             => 2,
             'name'           => 'User',
             'slug'           => 'user',
-            'parent_id'      => 0
+            'parent_id'      => 1
         ]);
         $getAdminRole = Role::where('slug','admin')->first();
         $routes = array_keys(Route::getRoutes()->getRoutesByName());
@@ -65,17 +68,9 @@ class DatabaseSeeder extends Seeder
         factory(User::class, 50)->create()->each(function ($user) use ($getUserRole){
             $user->roles()->attach($getUserRole);
         });
-        if(array_intersect($adminModulesList, ['categories','tags'])) {
-            factory(\App\Taxonomy::class,50)->create();
-        }
-        if(array_intersect($adminModulesList, ['blogs','news'])) {
-            factory(\App\Post::class,50)->create();
-        }
-        if(in_array('media', $adminModulesList, true)){
-            factory(\App\Media::class,50)->create();
-        }
-        if(in_array('products', $adminModulesList, true)){
-            factory(\App\Product::class,50)->create();
-        }
+        factory(Taxonomy::class,50)->create();
+        factory(Post::class,50)->create();
+        factory(Media::class,50)->create();
+        factory(Product::class,50)->create();
     }
 }

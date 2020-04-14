@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('adminPanelModules', explode('|', env('ADMIN_PANEL_MODULES')));
+
     }
 }

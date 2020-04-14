@@ -25,8 +25,6 @@
                         <li><a href="{{ route('admin.user.create') }}">Create New</a></li>
                     </ul>
                 </li>
-                <hr>
-                @if(in_array('categories',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -39,8 +37,6 @@
                         <li><a href="{{ route('admin.category.create') }}">Create New</a></li>
                     </ul>
                 </li>
-                @endif
-                @if(in_array('tags',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -53,8 +49,6 @@
                         <li><a href="{{ route('admin.tag.create') }}">Create New</a></li>
                     </ul>
                 </li>
-                @endif
-                @if(in_array('plugins',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -67,8 +61,6 @@
                         <li><a href="javascript:void(0);">Create New</a></li>
                     </ul>
                 </li>
-                @endif
-                @if(in_array('media',$adminPanelModules, true))
                     <li>
                         <a href="javascript:void(0);" class="has-arrow waves-effect">
                             <div class="d-inline-block icons-sm mr-1">
@@ -80,8 +72,6 @@
                             <li><a href="{{ route('admin.media.create') }}">Create New</a></li>
                         </ul>
                     </li>
-                @endif
-                @if(in_array('pages',$adminPanelModules, true))
                     <li>
                         <a href="javascript:void(0);" class="has-arrow waves-effect">
                             <div class="d-inline-block icons-sm mr-1">
@@ -93,8 +83,6 @@
                             <li><a href="javascript:void(0);">Create New</a></li>
                         </ul>
                     </li>
-                @endif
-                @if(in_array('products',$adminPanelModules, true))
                     <li>
                         <a href="javascript:void(0);" class="has-arrow waves-effect">
                             <div class="d-inline-block icons-sm mr-1">
@@ -117,8 +105,6 @@
                             <li><a href="javascript:void(0);">Create New</a></li>
                         </ul>
                     </li>
-                @endif
-                @if(in_array('blogs',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -130,8 +116,6 @@
                         <li><a href="{{ route('admin.blog.create') }}">Create New</a></li>
                     </ul>
                 </li>
-                @endif
-                @if(in_array('news',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -144,8 +128,6 @@
                         <li><a href="{{ route('admin.news.create') }}">Create New</a></li>
                     </ul>
                 </li>
-                @endif
-                @if(in_array('comments',$adminPanelModules, true))
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
@@ -158,7 +140,6 @@
                         <li><a href="javascript:void(0);">Create New</a></li>
                     </ul>
                 </li>
-                @endif
                 <hr>
             </ul>
         </div>

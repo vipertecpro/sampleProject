@@ -20,12 +20,17 @@ class RoleController extends Controller
      * */
     public function index(Builder $builder){
         try{
-
             if (request()->ajax()) {
-                return DataTables::of(Role::where('slug','!=','admin')->latest()->get())
+                return DataTables::of(Role::whereNotIn('slug',['admin','user'])->latest()->get())
                         ->addIndexColumn()
                         ->editColumn('parent_id',function(Role $role){
-                            return $role->parent_id;
+                            if($role->parent_id === 1){
+                                return 'Admin';
+                            }
+                            if($role->parent_id === 2){
+                                return 'User';
+                            }
+                            return $role->getParentName->name;
                         })
                         ->addColumn('action',function(Role $role){
                             return ' <div class="btn-group btn-group-sm" role="group">
@@ -85,7 +90,7 @@ class RoleController extends Controller
          if($id === 0){
              $data = [
                  'pageTitle'        => 'Role Create',
-                 'pageInfo'         => 'Create user',
+                 'pageInfo'         => 'Create role',
                  'formType'         => 'create',
                  'formData'         => []
              ];

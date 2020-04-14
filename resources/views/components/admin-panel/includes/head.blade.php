@@ -1,8 +1,8 @@
 <head>
     <meta charset="utf-8" />
-    <title>{{ @$attributes['data']['page_title'] }}</title>
+    <title>{{ env('APP_NAME').' | '.@$attributes['data']['pageTitle'] }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="{{ @$attributes['data']['meta_description'] }}" name="description" />
+    <meta content="{{ @$attributes['data']['pageInfo'] }}" name="description" />
     <meta content="{{ @$attributes['data']['meta_keywords'] }}" name="keywords" />
     <meta content="{{ @$attributes['data']['meta_author'] }}" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">

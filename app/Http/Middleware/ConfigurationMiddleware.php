@@ -21,10 +21,6 @@ class ConfigurationMiddleware
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $adminModulesList = array_merge(explode('|', env('ADMIN_PANEL_MODULES')),$this->except);
-        if(!in_array($request->segment(2),$adminModulesList, true)  ){
-            abort(404);
-        }
         return $next($request);
     }
 }
