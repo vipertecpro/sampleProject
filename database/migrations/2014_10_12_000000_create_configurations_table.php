@@ -91,6 +91,32 @@ class CreateConfigurationsTable extends Migration
             $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
             $table->primary(['role_id','permission_id']);
         });
+
+
+
+        Schema::create('themes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->unique();
+            $table->string('pages_path')->unique();
+            $table->string('layout_path')->unique();
+            $table->string('screenshot_path')->unique();
+            $table->enum('activate',[
+                'true',
+                'false'
+            ])->default('false');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Artisan::call('make:controller',[
+            'name'  => 'Admin/ThemeController'
+        ]);
+        Artisan::call('make:model',[
+            'name'  => 'Theme'
+        ]);
+
+
+
         Artisan::call('make:controller',[
             'name'  => 'Admin/CategoryController'
         ]);
@@ -300,6 +326,7 @@ class CreateConfigurationsTable extends Migration
         /*
          *  Default Drop
          * */
+        Schema::dropIfExists('themes');
         Schema::dropIfExists('roles_permissions');
         Schema::dropIfExists('users_permissions');
         Schema::dropIfExists('users_roles');

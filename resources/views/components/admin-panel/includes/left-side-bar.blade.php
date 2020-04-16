@@ -61,40 +61,47 @@
                         <li><a href="javascript:void(0);">Create New</a></li>
                     </ul>
                 </li>
-                    <li>
-                        <a href="javascript:void(0);" class="has-arrow waves-effect">
-                            <div class="d-inline-block icons-sm mr-1">
-                                <i class="uil uil-image"></i></div>
-                            <span>Media</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{ route('admin.media.list') }}">Listing</a></li>
-                            <li><a href="{{ route('admin.media.create') }}">Create New</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="has-arrow waves-effect">
-                            <div class="d-inline-block icons-sm mr-1">
-                                <i class="uil uil-grids"></i></div>
-                            <span>Pages</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="javascript:void(0);">Listing</a></li>
-                            <li><a href="javascript:void(0);">Create New</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="has-arrow waves-effect">
-                            <div class="d-inline-block icons-sm mr-1">
-                                <i class="uil uil-cart"></i></div>
-                            <span>Products</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{ route('admin.product.list') }}">Listing</a></li>
-                            <li><a href="{{ route('admin.product.create') }}">Create New</a></li>
-                        </ul>
-                    </li>
-                    <li>
+                <li>
+                    <a href="{{ route('admin.theme.list') }}" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-layers-alt"></i></div>
+                        <span>Themes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-image"></i></div>
+                        <span>Media</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.media.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.media.create') }}">Create New</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-grids"></i></div>
+                        <span>Pages</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="javascript:void(0);">Listing</a></li>
+                        <li><a href="javascript:void(0);">Create New</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-cart"></i></div>
+                        <span>Products</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.product.list') }}">Listing</a></li>
+                        <li><a href="{{ route('admin.product.create') }}">Create New</a></li>
+                    </ul>
+                </li>
+                <li>
                         <a href="javascript:void(0);" class="has-arrow waves-effect">
                             <div class="d-inline-block icons-sm mr-1">
                                 <i class="uil uil-shopping-basket"></i></div>

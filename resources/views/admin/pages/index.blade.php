@@ -71,7 +71,8 @@
 @push('custom_page_js')
     @if(Route::currentRouteName() === 'admin.media.list')
         <script src="{{ asset('admin/js/clipboard.min.js') }}" type="text/javascript"></script>
-
+    @elseif(Route::currentRouteName() === 'admin.theme.list')
+        <script src="{{ asset('admin/js/theme.js') }}" type="text/javascript"></script>
     @elseif(Route::currentRouteName() === 'admin.product.list')
     @endif
 @endpush

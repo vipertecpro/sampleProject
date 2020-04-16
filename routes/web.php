@@ -59,7 +59,6 @@ Route::group([
             Route::delete('remove','RoleController@showRemove')->name('remove');
         });
     });
-
     Route::group([
         'prefix'    => 'categories',
         'as'        => 'category.'
@@ -71,7 +70,6 @@ Route::group([
         Route::get('view/{id}','CategoryController@showCategory')->name('show');
         Route::delete('remove','CategoryController@removeCategory')->name('remove');
     });
-
     Route::group([
         'prefix'    => 'tags',
         'as'        => 'tag.'
@@ -82,6 +80,18 @@ Route::group([
         Route::post('storeUpdate/{id?}','TagController@createUpdateRequest')->name('storeUpdate');
         Route::get('view/{id}','TagController@showTag')->name('show');
         Route::delete('remove','TagController@removeTag')->name('remove');
+    });
+    Route::group([
+        'prefix'    => 'themes',
+        'as'        => 'theme.'
+    ],function(){
+        Route::get('/','ThemeController@index')->name('list');
+        Route::get('/create','ThemeController@createUpdateForm')->name('create');
+        Route::get('/edit/{id}','ThemeController@createUpdateForm')->name('edit');
+        Route::post('storeUpdate/{id?}','ThemeController@createUpdateRequest')->name('storeUpdate');
+        Route::get('view/{id}','ThemeController@showRemove')->name('show');
+        Route::delete('remove','ThemeController@showRemove')->name('remove');
+        Route::patch('activate','ThemeController@activate')->name('activate');
     });
     Route::group([
         'prefix'    => 'blogs',
@@ -116,7 +126,6 @@ Route::group([
         Route::get('view/{id}','MediaController@showMedia')->name('show');
         Route::delete('remove','MediaController@showRemove')->name('remove');
     });
-
     Route::group([
         'prefix'    => 'products',
         'as'        => 'product.'
@@ -128,7 +137,6 @@ Route::group([
         Route::get('view/{id}','ProductController@showProduct')->name('show');
         Route::delete('remove','ProductController@showRemove')->name('remove');
     });
-
     Route::group([
         'prefix'    => 'config',
         'as'        => 'config.'
@@ -139,4 +147,11 @@ Route::group([
         Route::get('/footer','ConfigurationController@footer')->name('footer');
         Route::get('/app','ConfigurationController@app')->name('app');
     });
+});
+
+Route::group([
+    'as'            => 'admin.',
+    'middleware'    => ['config','theme']
+],function(){
+    Route::get('/','FrontEndController@index')->name('home');
 });

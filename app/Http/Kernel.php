@@ -7,6 +7,7 @@ use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\ConfigurationMiddleware;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\ThemeConfiguration;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -84,6 +85,7 @@ class Kernel extends HttpKernel
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
         'config' => ConfigurationMiddleware::class,
+        'theme' => ThemeConfiguration::class,
     ];
 
     /**

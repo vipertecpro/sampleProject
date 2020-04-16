@@ -26,6 +26,28 @@ $(document).on('click','.remove',function () {
         }
     });
 });
+$(document).on('click','.activate',function () {
+    let table = $('#dataTableBuilder').DataTable();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: 'PATCH',
+        url: $(this).attr('data-url'),
+        data: {
+            id: $(this).attr('data-id'),
+        },
+        dataType: 'json',
+        success: function(data) {
+            table.ajax.reload();
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+});
 /*
 * Media Multiple File Upload
 * */
