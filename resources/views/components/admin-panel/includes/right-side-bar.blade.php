@@ -49,7 +49,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-10.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-10.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status online"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -63,7 +63,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-1.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status away"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -77,7 +77,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-9.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-9.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status busy"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -94,7 +94,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-2.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-2.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status online"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -108,7 +108,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-4.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-4.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status away"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -122,7 +122,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-5.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-5.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status online"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -136,7 +136,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-6.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-6.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status online"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -150,7 +150,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-7.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-7.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status busy"></i>
                             </div>
                             <div class="media-body overflow-hidden">
@@ -164,7 +164,7 @@
                     <a href="javascript: void(0);" class="text-reset notification-item">
                         <div class="media">
                             <div class="position-relative align-self-center mr-3">
-                                <img src="{{ asset('admin/images/users/avatar-8.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ adminAsset('images/users/avatar-8.jpg') }}" class="rounded-circle avatar-xs" alt="user-pic">
                                 <i class="mdi mdi-circle user-status away"></i>
                             </div>
                             <div class="media-body overflow-hidden">

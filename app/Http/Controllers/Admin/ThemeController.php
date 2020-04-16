@@ -7,10 +7,8 @@ use App\Theme;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Symfony\Component\Process\Process;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
 
@@ -81,7 +79,7 @@ class ThemeController extends Controller
             $data = [
                 'pageType'      => 'theme',
                 'pageTitle'     => 'Theme Listing',
-                'pageInfo'      => 'Theme are the communication outlets or tools used to store and deliver information or data.',
+                'pageInfo'      => 'In computing, a theme is a preset package containing graphical appearance details.',
                 'pageData'      => $html
             ];
             return view('admin.pages.index',compact('data'));

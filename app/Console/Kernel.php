@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\RemoveController;
 use App\Console\Commands\RemoveModel;
+use App\Console\Commands\ResourceLink;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Foundation\Application;
@@ -23,6 +24,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        ResourceLink::class,
         RemoveController::class,
         RemoveModel::class
     ];

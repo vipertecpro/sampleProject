@@ -21,4 +21,18 @@ class FrontEndController extends Controller
             ]);
         }
     }
+    public function login(Request $request){
+        try{
+            $data = [
+                'pageTitle' => 'Login Page',
+                'pageInfo'  => 'I AM Login PAGE'
+            ];
+            return view($request->attributes->get('themePages').'login',compact('data'));
+        }catch (Exception $exception){
+            return response()->json([
+                'status'     => 'error',
+                'message'    => $exception->getMessage()
+            ]);
+        }
+    }
 }

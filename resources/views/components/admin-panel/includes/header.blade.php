@@ -4,18 +4,18 @@
             <div class="navbar-brand-box">
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('admin/images/logo-sm-dark.png') }}" alt="" height="22">
+                        <img src="{{ adminAsset('images/logo-sm-dark.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('admin/images/logo-dark.png') }}" alt="" height="20">
+                        <img src="{{ adminAsset('images/logo-dark.png') }}" alt="" height="20">
                     </span>
                 </a>
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('admin/images/logo-sm-light.png') }}" alt="" height="22">
+                        <img src="{{ adminAsset('images/logo-sm-light.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('admin/images/logo-light.png') }}" alt="" height="20">
+                        <img src="{{ adminAsset('images/logo-light.png') }}" alt="" height="20">
                     </span>
                 </a>
             </div>
@@ -48,35 +48,35 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-flag-dropdown"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="" src="{{ asset('admin/images/flags/us.jpg') }}" alt="Header Language" height="14">
+                    <img class="" src="{{ adminAsset('images/flags/us.jpg') }}" alt="Header Language" height="14">
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('admin/images/flags/spain.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">Spanish</span>
+                        <img src="{{ adminAsset('images/flags/spain.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('admin/images/flags/germany.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">German</span>
+                        <img src="{{ adminAsset('images/flags/germany.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('admin/images/flags/italy.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">Italian</span>
+                        <img src="{{ adminAsset('images/flags/italy.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('admin/images/flags/russia.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">Russian</span>
+                        <img src="{{ adminAsset('images/flags/russia.jpg') }}" alt="user-image" class="mr-2" height="12"><span class="align-middle">Russian</span>
                     </a>
                 </div>
             </div>
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ asset('admin/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user" src="{{ adminAsset('images/users/avatar-1.jpg') }}" alt="Header Avatar">
                     <span class="d-none d-sm-inline-block ml-1">Smith</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </button>

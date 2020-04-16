@@ -62,17 +62,17 @@
 
 @push('custom_page_css')
     @if(Route::currentRouteName() === 'admin.media.list')
-        <link href="{{ asset('admin/css/mediaTable.css') }}" rel="stylesheet"/>
+        <link href="{{ adminAsset('css/mediaTable.css') }}" rel="stylesheet"/>
     @elseif(Route::currentRouteName() === 'admin.product.list')
-        <link href="{{ asset('admin/css/productTable.css') }}" rel="stylesheet"/>
+        <link href="{{ adminAsset('css/productTable.css') }}" rel="stylesheet"/>
     @endif
 @endpush
 
 @push('custom_page_js')
     @if(Route::currentRouteName() === 'admin.media.list')
-        <script src="{{ asset('admin/js/clipboard.min.js') }}" type="text/javascript"></script>
+        <script src="{{ adminAsset('js/clipboard.min.js') }}" type="text/javascript"></script>
     @elseif(Route::currentRouteName() === 'admin.theme.list')
-        <script src="{{ asset('admin/js/theme.js') }}" type="text/javascript"></script>
+        <script src="{{ adminAsset('js/theme.js') }}" type="text/javascript"></script>
     @elseif(Route::currentRouteName() === 'admin.product.list')
     @endif
 @endpush

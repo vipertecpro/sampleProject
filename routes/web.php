@@ -154,4 +154,5 @@ Route::group([
     'middleware'    => ['config','theme']
 ],function(){
     Route::get('/','FrontEndController@index')->name('home');
+    Route::get('/login','FrontEndController@login')->name('login');
 });
