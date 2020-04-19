@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -42,18 +41,16 @@ return [
     */
 
     'disks' => [
-
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-        'resource' => [
+        'adminResource' => [
             'driver' => 'local',
             'root' => resource_path('views/admin/assets'),
             'url' => env('APP_URL').'/adminAssets',
             'visibility' => 'public',
         ],
-
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

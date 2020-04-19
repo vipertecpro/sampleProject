@@ -7,6 +7,7 @@ use App\Theme;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
@@ -46,17 +47,20 @@ class ThemeController extends Controller
                                     </a>';
                         })
                         ->addColumn('action',function(Theme $theme){
-                            $defaultBtn = '<div class="btn-group btn-group-sm" role="group">
+                            $defaultBtn = '';
+                            if($theme->activate === 'false'){
+                                $defaultBtn = '<div class="btn-group btn-group-sm" role="group">
                                         <button type="button" class="btn btn-sm btn-info activate" data-url="'.route('admin.theme.activate').'" data-id="'.$theme->id.'" title="Activate Theme">
                                             <i class="uil uil-repeat"></i>
                                             </button>
                                     </div>';
-                            if($theme->name !== 'default'){
-                                return $defaultBtn.'<div class="btn-group btn-group-sm" role="group">
+                                if($theme->name !== 'default'){
+                                    return $defaultBtn.'<div class="btn-group btn-group-sm" role="group">
                                         <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.theme.remove').'" data-id="'.$theme->id.'" title="Remove Role">
                                             <i class="uil uil-trash"></i>
                                             </button>
                                     </div>';
+                                }
                             }
                             return $defaultBtn;
                         })
@@ -69,7 +73,7 @@ class ThemeController extends Controller
                 ['data' => 'name', 'name' => 'name', 'title' => 'Name'],
                 ['data' => 'activate', 'name' => 'activate', 'title' => 'Activate'],
                 ['data' => 'pages_path', 'name' => 'pages_path', 'title' => 'Pages Path'],
-                ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '10px','sortable' => false],
+                ['data' => 'action', 'name' => 'action', 'title' => '', 'width' => '100px','sortable' => false],
             ])->parameters([
 //                'dom'           => 'Blfrtip',
                 'processing'    => true,
@@ -139,18 +143,26 @@ class ThemeController extends Controller
 
     public function activate(Request $request, $id = 0){
         try{
-
             if($request->ajax()) {
                 $getTheme = Theme::findOrFail($request->get('id'));
                 if($getTheme->activate === 'false'){
                     Theme::where('id',$request->get('id'))->update([
                         'activate'  => 'true'
                     ]);
+                    Theme::where('id','!=',$request->get('id'))
+                        ->where('activate','true')
+                        ->update([
+                        'activate'  => 'false'
+                    ]);
                 }else{
                     Theme::where('id',$request->get('id'))->update([
                         'activate'  => 'false'
                     ]);
                 }
+                if(file_exists(public_path('assets')) && is_link(public_path('assets'))){
+                    unlink(public_path('assets'));
+                }
+                File::link(resource_path('views/themes/'.$getTheme->name.'/assets'), public_path('assets'));
                 return response()->json([
                     'status'    => 'success',
                     'message'   => 'Theme Activated Successfully'

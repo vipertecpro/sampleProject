@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use App\Theme;
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class ThemeConfiguration
@@ -28,12 +28,20 @@ class ThemeConfiguration
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $getActivatedTheme = Theme::where('activate','true')->first();
-        if($getActivatedTheme === null){
-            abort(501,'Theme is not activated.');
+        try{
+            $getActivatedTheme = Theme::where('activate','true')->first();
+            if($getActivatedTheme === null){
+                abort(501,'Theme is not activated.');
+            }
+            $request->attributes->set('themeName',$getActivatedTheme->name);
+            $request->attributes->set('themePages',$getActivatedTheme->pages_path);
+            $request->attributes->set('appThemeLayout',$getActivatedTheme->layout_path);
+            return $next($request);
+        }catch(Exception $exception){
+            return response()->json([
+               'status'     => 'error',
+               'message'    => $exception->getMessage()
+            ]);
         }
-        $request->attributes->set('themePages',$getActivatedTheme->pages_path);
-        $request->attributes->set('appThemeLayout',$getActivatedTheme->layout_path);
-        return $next($request);
     }
 }

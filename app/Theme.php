@@ -13,6 +13,6 @@ class Theme extends Model
         'pages_path',
         'layout_path',
         'screenshot_path',
-        'active'
+        'activate'
     ];
 }

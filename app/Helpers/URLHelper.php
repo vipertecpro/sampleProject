@@ -10,3 +10,15 @@ if (!function_exists('adminAsset')) {
         return url('adminAssets/'.$path);
     }
 }
+if (!function_exists('publicAsset')) {
+    /**
+     * Return Theme Assets Path
+     *
+     * @param string $path
+     * @return string
+     */
+    function publicAsset($path){
+
+        return url('assets/'.$path);
+    }
+}

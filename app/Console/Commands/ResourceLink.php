@@ -19,7 +19,7 @@ class ResourceLink extends Command
      *
      * @var string
      */
-    protected $description = 'Create the symbolic link of resources for the application';
+    protected $description = 'Create the symbolic link of resources for the admin panel';
 
     /**
      * Create a new command instance.
@@ -38,14 +38,12 @@ class ResourceLink extends Command
      */
     public function handle():void
     {
-        File::link(resource_path('views/admin/assets'), public_path('adminAssets'));
-//        $controllerName = $this->argument('name').'.php';
-//        $controllerPath = base_path('app/Http/Controllers/').$controllerName;
-//
-//        if(file_exists($controllerPath)){
-//            $this->line('Controller removed successfully.');
-//        }else{
-//            $this->line('No controller found.');
-//        }
+        if(!is_link(public_path('adminAssets'))){
+            File::link(resource_path('views/admin/assets'), public_path('adminAssets'));
+            $this->line('The ['.resource_path('views/admin/assets').'] link has been connected to ['.public_path('adminAssets').'].');
+        }else{
+            $this->error('The ['.resource_path('views/admin/assets').'] link already exists.');
+        }
+        $this->line('The links have been created.');
     }
 }

@@ -14,6 +14,12 @@ class CreateConfigurationsTable extends Migration
      */
     public function up(): void
     {
+
+        Artisan::call('make:controller',[
+            'name'  => 'Admin/CategoryController'
+        ]);
+
+
         Schema::create('configurations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
@@ -99,6 +105,7 @@ class CreateConfigurationsTable extends Migration
             $table->string('name')->unique();
             $table->string('pages_path')->unique();
             $table->string('layout_path')->unique();
+            $table->string('assets_path')->unique();
             $table->string('screenshot_path')->unique();
             $table->enum('activate',[
                 'true',
@@ -107,7 +114,6 @@ class CreateConfigurationsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
         Artisan::call('make:controller',[
             'name'  => 'Admin/ThemeController'
         ]);
