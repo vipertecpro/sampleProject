@@ -150,9 +150,15 @@ Route::group([
 });
 
 Route::group([
-    'as'            => 'admin.',
+    'as'            => 'front.',
     'middleware'    => ['config','theme']
 ],function(){
     Route::get('/','FrontEndController@index')->name('home');
     Route::get('/login','FrontEndController@login')->name('login');
+    Route::group([
+        'as'            => 'news.',
+        'prefix'        => 'news'
+    ],function(){
+        Route::match(['GET','POST'],'/{newsSlug?}','FrontEndController@news')->name('view');
+    });
 });

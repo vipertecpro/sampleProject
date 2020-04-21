@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Contracts\Routing\UrlGenerator;
+
 if (!function_exists('adminAsset')) {
     /**
      * Return Admin Assets Path
@@ -6,15 +9,15 @@ if (!function_exists('adminAsset')) {
      * @param string $path
      * @return string
      */
-    function adminAsset($path){
+    function adminAsset($path = ''){
         return url('adminAssets/'.$path);
     }
 }
 if (!function_exists('publicAsset')) {
     /**
-     * Return Theme Assets Path
+     * Get the path to the assets symlink folder.
      *
-     * @param string $path
+     * @param  string  $path
      * @return string
      */
     function publicAsset($path){

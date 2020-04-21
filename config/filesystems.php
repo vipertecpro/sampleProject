@@ -45,12 +45,6 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-        'adminResource' => [
-            'driver' => 'local',
-            'root' => resource_path('views/admin/assets'),
-            'url' => env('APP_URL').'/adminAssets',
-            'visibility' => 'public',
-        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

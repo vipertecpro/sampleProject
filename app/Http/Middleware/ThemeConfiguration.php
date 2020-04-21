@@ -36,7 +36,8 @@ class ThemeConfiguration
             $request->attributes->set('themeName',$getActivatedTheme->name);
             $request->attributes->set('themePages',$getActivatedTheme->pages_path);
             $request->attributes->set('appThemeLayout',$getActivatedTheme->layout_path);
-            return $next($request);
+            return $next($request)->header('Access-Control-Allow-Origin', '*')
+                                  ->header('Access-Control-Allow-Methods', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS');
         }catch(Exception $exception){
             return response()->json([
                'status'     => 'error',
