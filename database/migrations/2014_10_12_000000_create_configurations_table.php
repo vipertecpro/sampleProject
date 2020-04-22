@@ -105,8 +105,8 @@ class CreateConfigurationsTable extends Migration
             $table->string('name')->unique();
             $table->string('pages_path')->unique();
             $table->string('layout_path')->unique();
-            $table->string('assets_path')->unique();
             $table->string('screenshot_path')->unique();
+            $table->longText('components')->nullable();
             $table->enum('activate',[
                 'true',
                 'false'

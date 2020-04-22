@@ -1,11 +1,11 @@
 @extends(Request::get('appThemeLayout'))
 @section('pageContents')
-    <main id="home" class="masthead jarallax" style="background-image:url({{ publicAsset('img/bg/personal.jpg') }});" id="content" role="main">
+    <main id="home" class="masthead jarallax" style="background-image:url({{ Request::get('themeComponents')['text']['headerImageUrl'] }});" id="content" role="main">
         <div class="opener">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-5">
-                        <h1>Hey, I am {{ env('APP_NAME') }}.</h1>
+                        <h1>{!! Request::get('themeComponents')['text']['headerText'] !!}</h1>
                     </div>
                 </div>
             </div>

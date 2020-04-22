@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ba0e3fd6980dfcfea671bb8c1c96dac",
+    "content-hash": "b89c3b0b3553055143e3e769678056a8",
     "packages": [
         {
             "name": "brick/math",
@@ -382,16 +382,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.6.2",
+            "version": "v7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "695be25d84b5cedd0026c428d4e9697fe8cd06f9"
+                "reference": "4de129177f889cd7672e732d8808020adfb7b121"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/695be25d84b5cedd0026c428d4e9697fe8cd06f9",
-                "reference": "695be25d84b5cedd0026c428d4e9697fe8cd06f9",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4de129177f889cd7672e732d8808020adfb7b121",
+                "reference": "4de129177f889cd7672e732d8808020adfb7b121",
                 "shasum": ""
             },
             "require": {
@@ -495,6 +495,7 @@
                 "psr/http-message": "Required to allow Storage::put to accept a StreamInterface (^1.0).",
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^4.0).",
                 "symfony/cache": "Required to PSR-6 cache bridge (^5.0).",
+                "symfony/filesystem": "Required to create relative storage directory symbolic links (^5.0).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^2.0).",
                 "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
             },
@@ -529,7 +530,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-04-15T20:57:47+00:00"
+            "time": "2020-04-21T18:57:12+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -5061,12 +5062,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "09afa996c68c18f49e6487b06adcb2ef27da61fa"
+                "reference": "2bdae3cc8428d637d5c86c8c33d0a3354ce93f7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/09afa996c68c18f49e6487b06adcb2ef27da61fa",
-                "reference": "09afa996c68c18f49e6487b06adcb2ef27da61fa",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2bdae3cc8428d637d5c86c8c33d0a3354ce93f7f",
+                "reference": "2bdae3cc8428d637d5c86c8c33d0a3354ce93f7f",
                 "shasum": ""
             },
             "conflict": {
@@ -5112,6 +5113,8 @@
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
+                "ezsystems/demobundle": ">=5.4,<5.4.6.1",
+                "ezsystems/ezdemo-ls-extension": ">=5.4,<5.4.2.1",
                 "ezsystems/ezfind-ls": ">=5.3,<5.3.6.1|>=5.4,<5.4.11.1|>=2017.12,<2017.12.0.1",
                 "ezsystems/ezplatform": ">=1.7,<1.7.9.1|>=1.13,<1.13.5.1|>=2.5,<2.5.4",
                 "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6",
@@ -5317,7 +5320,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2020-04-15T04:56:51+00:00"
+            "time": "2020-04-21T14:24:08+00:00"
         },
         {
             "name": "scrivo/highlight.php",

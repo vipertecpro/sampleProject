@@ -62,11 +62,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('admin.theme.list') }}" class="waves-effect">
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">
-                            <i class="uil uil-layers-alt"></i></div>
-                        <span>Themes</span>
+                            <i class="uil uil-plug"></i>
+                        </div>
+                        <span>Appearance</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.theme.list') }}">Themes</a></li>
+                        <li><a href="{{ route('admin.theme.component.list') }}">Components</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
@@ -102,16 +107,16 @@
                     </ul>
                 </li>
                 <li>
-                        <a href="javascript:void(0);" class="has-arrow waves-effect">
-                            <div class="d-inline-block icons-sm mr-1">
-                                <i class="uil uil-shopping-basket"></i></div>
-                            <span>Orders</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="javascript:void(0);">Listing</a></li>
-                            <li><a href="javascript:void(0);">Create New</a></li>
-                        </ul>
-                    </li>
+                    <a href="javascript:void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1">
+                            <i class="uil uil-shopping-basket"></i></div>
+                        <span>Orders</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="javascript:void(0);">Listing</a></li>
+                        <li><a href="javascript:void(0);">Create New</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1">

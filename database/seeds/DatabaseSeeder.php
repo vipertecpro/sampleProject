@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        updateThemes();
         Role::create([
            'id'             => 1,
            'name'           => 'Admin',

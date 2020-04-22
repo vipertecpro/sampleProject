@@ -86,12 +86,15 @@ Route::group([
         'as'        => 'theme.'
     ],function(){
         Route::get('/','ThemeController@index')->name('list');
-        Route::get('/create','ThemeController@createUpdateForm')->name('create');
-        Route::get('/edit/{id}','ThemeController@createUpdateForm')->name('edit');
-        Route::post('storeUpdate/{id?}','ThemeController@createUpdateRequest')->name('storeUpdate');
-        Route::get('view/{id}','ThemeController@showRemove')->name('show');
         Route::delete('remove','ThemeController@showRemove')->name('remove');
         Route::patch('activate','ThemeController@activate')->name('activate');
+        Route::group([
+            'prefix'    => 'components',
+            'as'        => 'component.'
+        ],function(){
+            Route::get('/','ThemeController@components')->name('list');
+            Route::post('/updateComponents','ThemeController@updateComponents')->name('update');
+        });
     });
     Route::group([
         'prefix'    => 'blogs',

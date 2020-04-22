@@ -12,7 +12,9 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "yajra/laravel-datatables": "^1.5"
+        "laravelcollective/html": "^6.1",
+        "yajra/laravel-datatables": "^1.5",
+        "ext-json": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
@@ -41,7 +43,8 @@
             "database/factories"
         ],
         "files" : [
-            "app/Helpers/URLHelper.php"
+            "app/Helpers/URLHelper.php",
+            "app/Helpers/ThemeHelper.php"
         ]
     },
     "autoload-dev": {

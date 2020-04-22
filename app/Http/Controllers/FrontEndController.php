@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FrontEndController extends Controller
 {
@@ -12,8 +13,13 @@ class FrontEndController extends Controller
         try{
             $getNewsData = Post::where('type','news')->paginate(3);
             $data = [
-                'pageTitle' => 'Home Page',
-                'pageInfo'  => 'I AM HOME PAGE',
+                'pageTitle'        => 'Home Page',
+                'pageImage'        => publicAsset('img/logo.png'),
+                'pageInfo'         => 'I AM HOME PAGE',
+                'pageType'         => 'website',
+                'meta_description' => 'Home Page',
+                'meta_keywords'    => 'Home Page',
+                'meta_author'      => env('META_AUTHOR'),
                 'pageData'  => [
                     'news'  => $getNewsData
                 ]
@@ -35,9 +41,14 @@ class FrontEndController extends Controller
                 $getNewsData = Post::where('type','news')->where('slug',$newsSlug)->first();
                 if($getNewsData !== null){
                     $data = [
-                        'pageTitle' => 'News | '.$getNewsData->title,
-                        'pageInfo'  => $getNewsData->summary,
-                        'pageData'  => $getNewsData
+                        'pageTitle'        => 'News | '.Str::of($getNewsData->title)->words(20),
+                        'pageInfo'         => Str::of($getNewsData->summary)->words(20),
+                        'pageData'         => $getNewsData,
+                        'pageImage'        => publicAsset('img/logo.png'),
+                        'pageType'         => 'article',
+                        'meta_description' => Str::of($getNewsData->summary)->words(10),
+                        'meta_keywords'    => 'Home Page',
+                        'meta_author'      => env('META_AUTHOR'),
                     ];
                 }else{
                     return response()->json([

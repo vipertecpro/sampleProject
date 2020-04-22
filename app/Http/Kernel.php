@@ -41,8 +41,7 @@ class Kernel extends HttpKernel
         CheckForMaintenanceMode::class,
         ValidatePostSize::class,
         TrimStrings::class,
-        ConvertEmptyStringsToNull::class,
-        ThemeConfiguration::class
+        ConvertEmptyStringsToNull::class
     ];
 
     /**
