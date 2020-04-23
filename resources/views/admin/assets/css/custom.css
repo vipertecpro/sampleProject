@@ -7,6 +7,9 @@ body {
     color: #4d4d4d;
     text-align: left;
 }
+pre{
+    margin: 0 auto;
+}
 .page-title-box {
     padding: 5px 10px 50px 10px;
 }

@@ -5,6 +5,7 @@
 <script src="{{ adminAsset('libs/node-waves/waves.min.js') }}"></script>
 <script src="{{ adminAsset('libs/jquery-knob/jquery.knob.min.js') }}"></script>
 <script src="{{ adminAsset('js/pages/dashboard.init.js') }}"></script>
+<script src="{{ adminAsset('js/CodeStyler.js') }}"></script>
 @stack('plugin_script')
 <script src="{{ adminAsset('js/app.js') }}"></script>
 <script src="{{ adminAsset('js/custom.js') }}"></script>
