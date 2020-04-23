@@ -120,9 +120,6 @@ class CreateConfigurationsTable extends Migration
         Artisan::call('make:model',[
             'name'  => 'Theme'
         ]);
-
-
-
         Artisan::call('make:controller',[
             'name'  => 'Admin/CategoryController'
         ]);

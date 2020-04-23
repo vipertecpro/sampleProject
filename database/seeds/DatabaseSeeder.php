@@ -6,8 +6,10 @@ use App\Post;
 use App\Product;
 use App\Role;
 use App\Taxonomy;
+use App\Theme;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -21,6 +23,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Artisan::call('resource:link');
         updateThemes();
         Role::create([
            'id'             => 1,
@@ -73,5 +76,8 @@ class DatabaseSeeder extends Seeder
         factory(Post::class,50)->create();
         factory(Media::class,50)->create();
         factory(Product::class,50)->create();
+        Theme::where('name','default')->update([
+            'activate'  => 'true'
+        ]);
     }
 }

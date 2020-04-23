@@ -8,6 +8,7 @@ if (!function_exists('updateTheme')) {
      * Get Themes from resources > themes folder and update into database
      */
     function updateThemes():void {
+
         $getThemesPath = glob(base_path('resources/views/themes') . '/*' , GLOB_ONLYDIR);
         foreach ($getThemesPath as $key => $value){
             $themeName = Str::afterLast($value, '/');
