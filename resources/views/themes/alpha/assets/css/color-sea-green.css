@@ -1,0 +1,325 @@
+/* ===================================
+    About
+====================================== */
+/*
+    Theme Name: Norex
+    Theme URI:
+    Author: Themes Industry
+    Author URI:
+    Description: One Page Parallax Template
+    Tags: one page, multipurpose, parallax, creative, html5
+
+ */
+/* ===================================
+    Variables
+====================================== */
+/* ===================================
+    Styling
+====================================== */
+::-webkit-scrollbar-thumb {
+  background: #24cdd5 !important;
+}
+.our-heading .heading-title {
+  color: #24cdd5 !important;
+}
+.yellow-btn {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.bg-yellow {
+  background-color: #24cdd5 !important;
+}
+.slider-yellow-btn {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.black-btn:hover {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.yellow-anim-btn {
+  background-color: #24cdd5 !important;
+}
+.anim-btn span {
+  background-color: #24cdd5 !important;
+}
+.bottom-arr {
+  background-color: #24cdd5 !important;
+}
+.hesperiden .tp-tab-mask {
+  background-color: #24cdd5 !important;
+}
+.slider-style-5 .hesperiden .tp-tab.selected {
+  background-color: #24cdd5 !important;
+}
+.tp-bullet.selected .tp-count {
+  color: #24cdd5 !important;
+}
+.upper-nav .navbar-brand:hover {
+  color: #24cdd5 !important;
+}
+.upper-nav .top-detail li.social-links span i:hover {
+  background-color: #24cdd5 !important;
+}
+.upper-nav .toggle-btn:hover span:nth-child(2),
+.toggle-btn.toggle-btn-lg:hover span:nth-child(2) {
+  background-color: #24cdd5 !important;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: #fff !important;
+}
+header .broad-nav .close-nav:hover i {
+  color: #24cdd5 !important;
+}
+header .broad-nav .navbar .nav-link:focus,
+header .broad-nav .navbar .nav-link:hover,
+header .broad-nav .navbar .nav-link.active {
+  color: #24cdd5 !important;
+}
+header .broad-nav .navbar .nav-link.active:before {
+  background-color: #24cdd5 !important;
+}
+header .broad-nav .navbar .nav-link.active:after {
+  background-color: #24cdd5 !important;
+}
+.about-sec .about-sec-detail .about-img-holder .behind-overlay {
+  background-color: #24cdd5 !important;
+}
+.about-sec .about-des-sec .ex-detail .fly-text {
+  color: #24cdd5 !important;
+}
+.about-sec .about-media .ex-line {
+  background-color: #24cdd5 !important;
+}
+.about-sec .about-media:hover .about-icon i {
+  color: #24cdd5 !important;
+}
+.services-sec .services-box .s-card .card.active,
+.services-sec .services-box .s-card .card:hover {
+  background-color: #24cdd5 !important;
+}
+.services-sec .services-box .card .service-icon i {
+  color: #24cdd5 !important;
+}
+.team-sec .ex-detail .fly-text {
+  color: #24cdd5 !important;
+}
+.team-sec .team-navigation .left-arr:hover i,
+.team-sec .team-navigation .right-arr:hover i {
+  color: #24cdd5 !important;
+}
+.team-sec .skill-bars .progress-item .progress-bar {
+  background-color: #24cdd5 !important;
+}
+.our-services .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #24cdd5 !important;
+}
+.our-services .nav-pills .nav-link.active span,
+.nav-pills .show > .nav-link span {
+  border-bottom: solid 2px #24cdd5 !important;
+}
+.service-list .media:hover .media-icon i {
+  color: #24cdd5 !important;
+}
+.service-list .media .media-icon .hover-line {
+  background-color: #24cdd5 !important;
+}
+.service-list .media .media-body .hover-line {
+  background-color: #24cdd5 !important;
+}
+.service-list .media .media-body .heading-title {
+  color: #24cdd5 !important;
+}
+.service-list .media:hover .media-body .small-heading {
+  color: #24cdd5 !important;
+}
+/*service list hover css*/
+.sparkle {
+  color: #24cdd5 !important;
+}
+.u-hover--sparkle::before {
+  border-top: 0.1em solid #24cdd5 !important;
+  border-bottom: 0.1em solid #24cdd5 !important;
+}
+.u-hover--sparkle::after {
+  border-left: 0.1em solid #24cdd5 !important;
+  border-right: 0.1em solid #24cdd5 !important;
+}
+.quote-sec .quote-writer {
+  color: #24cdd5 !important;
+}
+.cbp-l-filters-button .cbp-filter-item.cbp-filter-item-active {
+  color: #24cdd5 !important;
+  border-bottom: solid 3px #24cdd5 !important;
+}
+.portfolio-detail-text {
+  color: #24cdd5 !important;
+}
+.portfolio-hover-effect .hover-text .p-hover-title {
+  color: #24cdd5 !important;
+}
+.portfolio-sec .ex-detail .fly-text {
+  color: #24cdd5 !important;
+}
+.client-sec .client-heading .ex-detail .fly-text {
+  color: #24cdd5 !important;
+}
+.client-sec .client-des .testimonial-box {
+  background-color: #24cdd5 !important;
+}
+.pricing-sec .pricing-card:hover,
+.pricing-sec .pricing-card.active {
+  background-color: #24cdd5 !important;
+}
+.pricing-sec .pricing-card:hover button,
+.pricing-sec .pricing-card.active button {
+  background-color: #24cdd5 !important;
+}
+.pricing-sec .pricing-card .pricing-heading {
+  color: #24cdd5 !important;
+}
+.mini-blog-sec .mini-blog-detail .ex-detail .fly-text {
+  color: #24cdd5 !important;
+}
+.mini-blog-sec .card-blog .mini-blog:hover {
+  background-color: #24cdd5 !important;
+}
+.contact-sec .contact-detail .ex-detail .fly-text {
+  color: #24cdd5 !important;
+}
+.standalone-detail .sub-heading {
+  color: #24cdd5 !important;
+}
+.standalone-area .sub-heading {
+  color: #24cdd5 !important;
+}
+.lower-nav-style3 .navbar {
+  background-color: #24cdd5 !important;
+}
+.lower-nav-style3.fixed-top .navbar-light .navbar-nav .nav-link:focus,
+.lower-nav-style3.fixed-top .navbar-light .navbar-nav .nav-link:hover,
+.lower-nav-style3.fixed-top .navbar-light .navbar-nav .nav-link.active {
+  color: #fff !important;
+}
+/***********************************/
+/*******Index page 4 css start******/
+/***********************************/
+.header-style4 .lower-nav-style4 {
+  background-color: #24cdd5 !important;
+}
+.header-style4 .lower-nav-style4 .navbar {
+  background-color: #24cdd5 !important;
+}
+.header-style5 .lower-nav-style5 .navbar {
+  color: #24cdd5 !important;
+}
+.lower-nav-style5 .navbar-light .navbar-nav .nav-link:focus,
+.lower-nav-style5 .navbar-light .navbar-nav .nav-link:hover,
+.lower-nav-style5 .navbar-light .navbar-nav .nav-link.active {
+  color: #fff !important;
+}
+.lower-nav-style5.fixed-top .navbar-light .navbar-nav .nav-link:focus,
+.lower-nav-style5.fixed-top .navbar-light .navbar-nav .nav-link:hover,
+.lower-nav-style5.fixed-top .navbar-light .navbar-nav .nav-link.active {
+  color: #fff !important;
+}
+.lower-nav-style5 .toggle-btn.toggle-btn-lg:hover span:nth-child(2) {
+  background-color: #24cdd5 !important;
+}
+.inner-body .left-body-menu .social-links a:hover {
+  background-color: #24cdd5 !important;
+}
+.header-style7 .lower-nav-style7 .toggle-btn.toggle-btn-lg span {
+  background-color: #24cdd5 !important;
+}
+/***********************************/
+/*******blog pages css start******/
+/***********************************/
+.blog-sub-heading {
+  color: #24cdd5 !important;
+}
+.blog-sub-heading span {
+  background-color: #24cdd5 !important;
+}
+.crumbs .breadcrumb li a:hover {
+  color: #24cdd5 !important;
+}
+.blog-content .side_tags .search-bar form input {
+  border: solid 0.5px #24cdd5 !important;
+}
+.blog-content .side_tags .search-bar form span button {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.blog-content .side_tags .search-bar form:hover input {
+  border: solid 0.5px #24cdd5 !important;
+}
+.blog-content .side_tags .search-bar form span button:hover {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.blog-content .cat_sec ul li:hover a {
+  color: #24cdd5 !important;
+}
+.blog-content .popular_posts .media-box:hover .box-detail h2 {
+  color: #24cdd5 !important;
+}
+.blog-content .tags_sec .tags span:hover {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.blog-content .main_content .single_blog .single_detail .blog-text a:hover {
+  color: #24cdd5 !important;
+}
+.blog-content .main_content .single_blog .single_detail a.our-btn {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.blog-content .main_content .single_blog .single_detail a.our-btn:hover {
+  color: #24cdd5 !important;
+}
+.blog-content nav ul li a {
+  border: solid 0.5px #24cdd5 !important;
+}
+.blog-content nav ul li a.active {
+  background-color: #24cdd5 !important;
+}
+.blog-content nav ul li a:hover {
+  background-color: #24cdd5 !important;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  background-color: #24cdd5 !important;
+}
+.blog-content .main_content .detail_blog .blog_detail span a:hover {
+  color: #24cdd5 !important;
+}
+.blog-content .detail_blog .qoute {
+  border-left: solid 3px #24cdd5 !important;
+}
+.blog-content .detail_blog .tags span:hover {
+  border: solid 1px #24cdd5 !important;
+  background-color: #24cdd5 !important;
+}
+.red-btn {
+  background-color: #24cdd5 !important;
+  border: solid 1px #24cdd5 !important;
+}
+.red-btn:hover {
+  color: #24cdd5 !important;
+}
+.related-blog-posts .single_blog .read-more span {
+  background-color: #24cdd5 !important;
+}
+.related-blog-posts .single_blog .read-more {
+  color: #24cdd5 !important;
+}
+.related-blog-posts .single_blog:hover h2 {
+  color: #24cdd5 !important;
+}
+.dropdown-menu .dropdown-item:hover {
+  color: #24cdd5 !important;
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b89c3b0b3553055143e3e769678056a8",
+    "content-hash": "67f81763470f8e30136a8b3ced49ee6f",
     "packages": [
         {
             "name": "brick/math",
@@ -3523,16 +3523,16 @@
         },
         {
             "name": "yajra/laravel-datatables-buttons",
-            "version": "v4.9.0",
+            "version": "v4.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-buttons.git",
-                "reference": "8676c4523aeb5eacaf04fec12fc5ab6a2d053df8"
+                "reference": "b211e3c77ae37a462d47f6b8ae8d47cc9339658c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/8676c4523aeb5eacaf04fec12fc5ab6a2d053df8",
-                "reference": "8676c4523aeb5eacaf04fec12fc5ab6a2d053df8",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/b211e3c77ae37a462d47f6b8ae8d47cc9339658c",
+                "reference": "b211e3c77ae37a462d47f6b8ae8d47cc9339658c",
                 "shasum": ""
             },
             "require": {
@@ -3583,7 +3583,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2020-03-03T16:32:17+00:00"
+            "time": "2020-04-23T01:01:13+00:00"
         },
         {
             "name": "yajra/laravel-datatables-editor",
@@ -3767,16 +3767,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v9.9.0",
+            "version": "v9.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "976e70a2f0b831725da335cd434a11ff73d3c854"
+                "reference": "b0b9e2c37b5a17ca35bb2c6d3927bf6176393229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/976e70a2f0b831725da335cd434a11ff73d3c854",
-                "reference": "976e70a2f0b831725da335cd434a11ff73d3c854",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/b0b9e2c37b5a17ca35bb2c6d3927bf6176393229",
+                "reference": "b0b9e2c37b5a17ca35bb2c6d3927bf6176393229",
                 "shasum": ""
             },
             "require": {
@@ -3834,7 +3834,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2020-03-03T16:29:31+00:00"
+            "time": "2020-04-23T01:21:11+00:00"
         }
     ],
     "packages-dev": [
@@ -4975,16 +4975,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.3",
+            "version": "8.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "67750516bc02f300e2742fed2f50177f8f37bedf"
+                "reference": "8474e22d7d642f665084ba5ec780626cbd1efd23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/67750516bc02f300e2742fed2f50177f8f37bedf",
-                "reference": "67750516bc02f300e2742fed2f50177f8f37bedf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8474e22d7d642f665084ba5ec780626cbd1efd23",
+                "reference": "8474e22d7d642f665084ba5ec780626cbd1efd23",
                 "shasum": ""
             },
             "require": {
@@ -5054,7 +5054,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-03-31T08:52:04+00:00"
+            "time": "2020-04-23T04:39:42+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -5062,12 +5062,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "2bdae3cc8428d637d5c86c8c33d0a3354ce93f7f"
+                "reference": "81541a731da2f245a08666de73169cb5da7ac573"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2bdae3cc8428d637d5c86c8c33d0a3354ce93f7f",
-                "reference": "2bdae3cc8428d637d5c86c8c33d0a3354ce93f7f",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/81541a731da2f245a08666de73169cb5da7ac573",
+                "reference": "81541a731da2f245a08666de73169cb5da7ac573",
                 "shasum": ""
             },
             "conflict": {
@@ -5203,7 +5203,7 @@
                 "silverstripe/userforms": "<3",
                 "simple-updates/phpwhois": "<=1",
                 "simplesamlphp/saml2": "<1.10.6|>=2,<2.3.8|>=3,<3.1.4",
-                "simplesamlphp/simplesamlphp": "<1.18.4",
+                "simplesamlphp/simplesamlphp": "<1.18.6",
                 "simplesamlphp/simplesamlphp-module-infocard": "<1.0.1",
                 "simplito/elliptic-php": "<1.0.6",
                 "slim/slim": "<2.6",
@@ -5320,7 +5320,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2020-04-21T14:24:08+00:00"
+            "time": "2020-04-23T00:01:30+00:00"
         },
         {
             "name": "scrivo/highlight.php",
@@ -6103,7 +6103,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "ext-json": "*"
     },
     "platform-dev": []
 }

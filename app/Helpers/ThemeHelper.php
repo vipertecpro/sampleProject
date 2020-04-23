@@ -1,6 +1,7 @@
 <?php
 
 use App\Theme;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 if (!function_exists('updateTheme')) {

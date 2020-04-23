@@ -11,5 +11,5 @@
             </div>
         </div>
     </main>
-    <x-themes.default-theme.news-row :data="$data"/>
+    <x-themes.news-row :data="$data"/>
 @endsection

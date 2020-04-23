@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-    <x-themes.default-theme.head :data="$data"/>
+    <x-themes.head :data="$data"/>
 <body>
     <div class="click-capture d-lg-none"></div>
-    <x-themes.default-theme.header :data="$data"/>
+    <x-themes.header :data="$data"/>
     @yield('pageContents')
-    <x-themes.default-theme.footer :data="$data"/>
-    <x-themes.default-theme.scripts :data="$data"/>
+    <x-themes.footer :data="$data"/>
+    <x-themes.scripts :data="$data"/>
 </body>
 </html>

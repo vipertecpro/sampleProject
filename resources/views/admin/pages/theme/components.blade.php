@@ -9,7 +9,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3>Default Theme Settings</h3>
+                                    <h3>{!! Str::of($data['themeInfo']->name)->ucfirst() !!} : Theme Settings</h3>
                                     <hr>
                                 </div>
                             </div>

@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Storage;
 $factory->define(Media::class, function (Faker $faker) {
     return [
         'user_id'   => User::get()->random()->id,
-        'path'      => asset('storage/media/images/test1.jpg'),
-        'file_type' => pathinfo(url('media/images/test1.jpg'),PATHINFO_EXTENSION),
-        'file_size' => Storage::disk('public')->size('media/images/test1.jpg'),
+        'path'      => 'media/images/test1.jpg',
+        'file_type' => 'jpg',
+        'file_size' => '100kb',
     ];
 });

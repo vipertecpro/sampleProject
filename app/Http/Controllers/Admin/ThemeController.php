@@ -116,18 +116,6 @@ class ThemeController extends Controller
             ],401);
         }
     }
-    public function rmdir_recursive($dir) {
-        try{
-            foreach(scandir($dir) as $file) {
-                if ('.' === $file || '..' === $file) continue;
-                if (is_dir("$dir/$file")) $this->rmdir_recursive("$dir/$file");
-                else unlink("$dir/$file");
-            }
-            rmdir($dir);
-        }catch (Exception $exception){
-            return true;
-        }
-    }
     public function components(){
         $data = [
             'pageTitle'        => 'Theme Components',

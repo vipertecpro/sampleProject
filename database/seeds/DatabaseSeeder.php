@@ -10,8 +10,10 @@ use App\Theme;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +26,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Artisan::call('resource:link');
+        Artisan::call('storage:link');
+        Storage::disk('public')->makeDirectory('media/images');
+        Storage::disk('public')->makeDirectory('media/documents');
+
         updateThemes();
+        Theme::where('name','default')->update([
+            'activate'  => 'true'
+        ]);
+        $getTheme = Theme::where('activate','true')->first();
+        if($getTheme !== null){
+            if(file_exists(public_path('assets')) && is_link(public_path('assets'))){
+                unlink(public_path('assets'));
+            }
+            File::link(resource_path('views/themes/'.$getTheme->name.'/assets'), public_path('assets'));
+        }
         Role::create([
            'id'             => 1,
            'name'           => 'Admin',
@@ -76,8 +92,5 @@ class DatabaseSeeder extends Seeder
         factory(Post::class,50)->create();
         factory(Media::class,50)->create();
         factory(Product::class,50)->create();
-        Theme::where('name','default')->update([
-            'activate'  => 'true'
-        ]);
     }
 }
