@@ -3,7 +3,7 @@
         <a class="navbar-brand" href="{!! route('front.home') !!}">{!! env('APP_NAME') !!}</a>
         <ul class="navbar-nav-desctop mr-auto d-none d-lg-block">
             <li><a class="nav-link" href="{!! route('front.home') !!}">Home</a></li>
-            <li><a class="nav-link" href="{!! route('front.news.view') !!}">News</a></li>
+            <li><a class="nav-link" href="{!! route('front.show',['blog']) !!}">News</a></li>
         </ul>
         <ul class="social-icons mr-auto mr-lg-0 d-none d-sm-block">
             <li><a href="{{ @Request::get('themeComponents')['text']['socialLinks']['facebook'] }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -28,7 +28,7 @@
     </ul>
     <ul class="navbar-nav navbar-nav-mobile">
         <li><a class="nav-link" href="{!! route('front.home') !!}">Home</a></li>
-        <li><a class="nav-link" href="{!! route('front.news.view') !!}">News</a></li>
+        <li><a class="nav-link" href="{!! route('front.show',['blog']) !!}">News</a></li>
     </ul>
     <div class="navbar-mobile-footer">
         <p>© {!! date('Y').' '.env('APP_NAME') !!}. All Rights Reserved.</p>

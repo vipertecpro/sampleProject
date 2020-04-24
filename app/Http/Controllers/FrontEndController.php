@@ -32,37 +32,28 @@ class FrontEndController extends Controller
             ]);
         }
     }
-    public function news(Request $request, $newsSlug = ''){
+    public function show(Request $request,$post_type = null, $post_slug = null){
         try{
-            if($newsSlug !== ''){
+            if($post_slug !== null){
                 /*
                  * Single News Details
                  * */
-                $getNewsData = Post::where('type','news')->where('slug',$newsSlug)->first();
-                if($getNewsData !== null){
-                    $data = [
-                        'pageTitle'        => 'News | '.Str::of($getNewsData->title)->words(20),
-                        'pageInfo'         => Str::of($getNewsData->summary)->words(20),
-                        'pageData'         => $getNewsData,
-                        'pageImage'        => publicAsset('img/logo.png'),
-                        'pageType'         => 'article',
-                        'meta_description' => Str::of($getNewsData->summary)->words(10),
-                        'meta_keywords'    => 'Home Page',
-                        'meta_author'      => env('META_AUTHOR'),
-                    ];
-                }else{
-                    return response()->json([
-                        'status'    => 'error',
-                        'message'   => 'Invalid URL'
-                    ]);
-                }
+                $data = [
+                    'pageTitle'        => 'News | '.Str::of($post_slug->title)->words(20),
+                    'pageInfo'         => Str::of($post_slug->summary)->words(20),
+                    'pageData'         => $post_slug,
+                    'pageImage'        => publicAsset('img/logo.png'),
+                    'pageType'         => 'article',
+                    'meta_description' => Str::of($post_slug->summary)->words(10),
+                    'meta_keywords'    => 'Home Page',
+                    'meta_author'      => env('META_AUTHOR'),
+                ];
                 return view($request->attributes->get('themePages').'singleNews',compact('data'));
             }
-            $getNewsData = Post::where('type','news')->paginate(9);
             $data = [
                 'pageTitle' => 'News | List',
                 'pageInfo'  => 'Newly received or noteworthy information, especially about recent events.',
-                'pageData'  => $getNewsData
+                'pageData'  => $post_type
             ];
             return view($request->attributes->get('themePages').'news',compact('data'));
         }catch (Exception $exception){

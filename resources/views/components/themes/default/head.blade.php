@@ -2,17 +2,13 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta property="og:title" content="{{ @$attributes['data']['pageTitle'] }}" />
-    <meta property="og:image" content="{{ @$attributes['data']['pageImage'] }}" />
-    <meta property="og:description" content="{{ @$attributes['data']['pageInfo'] }}" />
-    <meta property="og:type" content="{{ @$attributes['data']['pageType'] }}" />
-    <meta property="og:locale" content="en_GB" />
-    <meta content="{{ @$attributes['data']['meta_description'] }}" name="description" />
-    <meta content="{{ @$attributes['data']['meta_keywords'] }}" name="keywords" />
-    <meta content="{{ @$attributes['data']['meta_author'] }}" name="author" />
 
-    <title>{{ env('APP_NAME').' | '.@$attributes['data']['pageTitle'] }}</title>
+    <meta name="description" content="{{ @$attributes['data']['meta_description'] }}" />
+    <meta name="keywords" content="{{ @$attributes['data']['meta_keywords'] }}"/>
+    <meta name="author" content="{{ @$attributes['data']['meta_author'] }}"/>
+    <title>{{ @$attributes['data']['pageTitle'] }}</title>
 
     <link href="{{ publicAsset('css/style.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ publicAsset('css/custom.css') }}" rel="stylesheet" type="text/css">

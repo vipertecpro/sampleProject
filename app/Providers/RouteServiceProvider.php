@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Post;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,20 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+        Route::bind('post_type', function ($post_type) {
+            $getAllPostData = Post::where('type', $post_type);
+            if($getAllPostData->first() === null){
+                abort('404','Invalid URL');
+            }
+            return $getAllPostData->paginate(9);
+        });
+        Route::bind('post_slug',function($post_slug){
+            try{
+                return Post::where('slug',$post_slug)->firstOrFail();
+            }catch (\Exception $exception){
+                return abort('404','Invalid URL');
+            }
+        });
     }
 
     /**
