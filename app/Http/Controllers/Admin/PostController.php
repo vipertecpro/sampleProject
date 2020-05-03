@@ -17,28 +17,28 @@ class PostController extends Controller
 
     }
     /*
-     * Def : List of all blog
+     * Def : List of all post
      * */
     public function index(Builder $builder){
         try{
             if (request()->ajax()) {
                 return DataTables::of(Post::where('type','blog')->latest()->get())
                         ->addIndexColumn()
-                        ->editColumn('title',function(Post $blog){
-                            return Str::words($blog->title,10);
+                        ->editColumn('title',function(Post $post){
+                            return Str::words($post->title,10);
                         })
-                        ->editColumn('created_by',function(Post $blog){
-                            return $blog->users->firstName.' '.$blog->users->lastName;
+                        ->editColumn('created_by',function(Post $post){
+                            return $post->users->firstName.' '.$post->users->lastName;
                         })
-                        ->addColumn('action',function(Post $blog){
+                        ->addColumn('action',function(Post $post){
                             return ' <div class="btn-group btn-group-sm" role="group">
-                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.blog.show',$blog->id).'" title="View Blog">
+                                        <button type="button" class="btn btn-sm btn-primary view" data-url="'.route('admin.post.show',$post->id).'" title="View Post">
                                             <i class="uil uil-eye"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-warning edit" data-url="'.route('admin.blog.edit',$blog->id).'" title="Edit Blog">
+                                        <button type="button" class="btn btn-sm btn-warning edit" data-url="'.route('admin.post.edit',$post->id).'" title="Edit Post">
                                             <i class="uil uil-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.blog.remove').'" data-id="'.$blog->id.'" title="Remove Blog">
+                                        <button type="button" class="btn btn-sm btn-danger remove" data-url="'.route('admin.post.remove').'" data-id="'.$post->id.'" title="Remove Post">
                                             <i class="uil uil-trash"></i>
                                             </button>
                                     </div>';
@@ -60,20 +60,20 @@ class PostController extends Controller
                 'buttons'       => [
                     [
                         'extend'    => 'excelHtml5',
-                        'title'     => 'Blog_Data_'.date('Y-m-d_h-i-s')
+                        'title'     => 'Post_Data_'.date('Y-m-d_h-i-s')
                     ],
                     [
                         'extend'    => 'pdfHtml5',
-                        'title'     => 'Blog_Data_'.date('Y-m-d_h-i-s')
+                        'title'     => 'Post_Data_'.date('Y-m-d_h-i-s')
                     ],
                     'copy', 'print'
                 ]
             ]);
             $data = [
-                'pageType'      => 'blog',
-                'createBtnUrl'  => route('admin.blog.create'),
-                'pageTitle'     => 'Blog Listing',
-                'pageInfo'      => 'A blog is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries.',
+                'pageType'      => 'post',
+                'createBtnUrl'  => route('admin.post.create'),
+                'pageTitle'     => 'Post Listing',
+                'pageInfo'      => 'A post is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries.',
                 'pageData'      => $html
             ];
             return view('admin.pages.index',compact('data'));
@@ -87,8 +87,8 @@ class PostController extends Controller
     public function createUpdateForm($id = 0){
          if($id === 0){
              $data = [
-                 'pageTitle'        => 'Blog Create',
-                 'pageInfo'         => 'Create blog',
+                 'pageTitle'        => 'Post Create',
+                 'pageInfo'         => 'Create post',
                  'formType'         => 'create',
                  'formData'         => [],
                  'getAllParentList' => Post::where('type','post')
@@ -97,8 +97,8 @@ class PostController extends Controller
              ];
          }else{
              $data = [
-                 'pageTitle'        => 'Blog Edit',
-                 'pageInfo'         => 'Update/Edit Blog',
+                 'pageTitle'        => 'Post Edit',
+                 'pageInfo'         => 'Update/Edit Post',
                  'formType'         => 'edit',
                  'formData'         => Post::findOrFail($id),
                  'getAllParentList' => Post::where('type','post')
@@ -107,7 +107,7 @@ class PostController extends Controller
                                                 ->pluck('name','id')
              ];
          }
-        return view('admin.pages.blog.form',compact('data'));
+        return view('admin.pages.post.form',compact('data'));
     }
 
     public function createUpdateRequest(Request $request, $id = 0){
@@ -117,7 +117,7 @@ class PostController extends Controller
             ]);
             return response()->json([
                 'status'     => 'success',
-                'message'    => 'Blog Updated Successfully'
+                'message'    => 'Post Updated Successfully'
             ],401);
         }catch (Exception $exception){
             return response()->json([
@@ -132,15 +132,15 @@ class PostController extends Controller
             Post::findOrFail($request->get('id'))->delete();
             return response()->json([
                 'status'     => 'success',
-                'message'    => 'Blog removed successfully'
+                'message'    => 'Post removed successfully'
             ],200);
         }
         $data = [
-            'pageTitle'        => 'View Blog',
-            'pageInfo'         => 'Here you can view the details of blog.',
+            'pageTitle'        => 'View Post',
+            'pageInfo'         => 'Here you can view the details of post.',
             'formData'         => Post::findOrFail($id),
             'getAllParentList' => []
         ];
-        return view('admin.pages.blog.view',compact('data'));
+        return view('admin.pages.post.view',compact('data'));
     }
 }

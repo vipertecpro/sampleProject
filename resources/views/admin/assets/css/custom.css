@@ -203,6 +203,20 @@ table.dataTable > tbody > tr.child span.dtr-title {
     min-width: 100px;
     font-weight: bold;
 }
+#sidebar-menu ul li ul.sub-menu {
+    background-color: rgba(0,0,0,0.02);
+}
+.popover-content{
+    display: none;
+}
+.btn-popover {
+    border-radius: 0;
+    border: 0 solid transparent;
+}
+.popover{
+    max-width: 800px !important;
+    width: auto;
+}
 @media (max-width: 992px) {
     .navbar-brand-box {
         height: 55px;

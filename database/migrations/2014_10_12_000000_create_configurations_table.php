@@ -176,7 +176,7 @@ class CreateConfigurationsTable extends Migration
             $table->longText('summary');
             $table->longText('content');
             $table->enum('type',[
-                'blog','news','page'
+                'blog','news','page','product'
             ]);
             $table->enum('status',[
                 'published','draft'
@@ -237,26 +237,12 @@ class CreateConfigurationsTable extends Migration
         Artisan::call('make:model',[
             'name'  => 'Product'
         ]);
-        Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('product_sku');
-            $table->string('product_name');
-            $table->longText('product_short_desc');
-            $table->longText('product_long_desc');
-            $table->bigInteger('product_price');
-            $table->enum('product_in_stock',[
-                'yes','no'
-            ]);
-            $table->timestamps();
-            $table->softDeletes();
-        });
         Artisan::call('make:model',[
             'name'  => 'ProductAsset'
         ]);
         Schema::create('product_assets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('product_id');
+            $table->bigInteger('post_id');
             $table->enum('asset_type',[
                 'video','audio','document','image'
             ]);
@@ -325,7 +311,6 @@ class CreateConfigurationsTable extends Migration
         Schema::dropIfExists('product_fields');
         Schema::dropIfExists('product_field_groups');
         Schema::dropIfExists('product_assets');
-        Schema::dropIfExists('products');
         /*
          *  Default Drop
          * */

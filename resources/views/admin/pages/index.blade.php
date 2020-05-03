@@ -30,13 +30,9 @@
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Tag">
                                                 <i class="uil uil-pen"></i> Create Tag
                                             </a>
-                                        @elseif($data['pageType'] === 'blog')
+                                        @elseif($data['pageType'] === 'post')
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Blog">
-                                                <i class="uil uil-pen"></i> Create Blog
-                                            </a>
-                                        @elseif($data['pageType'] === 'news')
-                                            <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create News">
-                                                <i class="uil uil-pen"></i> Create News
+                                                <i class="uil uil-pen"></i> Create Post
                                             </a>
                                         @elseif($data['pageType'] === 'product')
                                             <a href="{{ @$data['createBtnUrl'] ?? 'javascript:void(0);' }}" class="btn btn-primary btn-sm" title="Create Product">

@@ -29,7 +29,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'slug'          => $slug,
         'summary'       => $faker->sentence(50),
         'content'       => $faker->sentence(500),
-        'type'          => $faker->randomElement(['blog','news']),
+        'type'          => $faker->randomElement(['blog','news','page','product']),
         'status'        => $faker->randomElement(['published','draft']),
     ];
 });

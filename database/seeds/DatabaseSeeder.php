@@ -91,6 +91,5 @@ class DatabaseSeeder extends Seeder
         factory(Taxonomy::class,50)->create();
         factory(Post::class,50)->create();
         factory(Media::class,50)->create();
-        factory(Product::class,50)->create();
     }
 }

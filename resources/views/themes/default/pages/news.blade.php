@@ -3,7 +3,7 @@
     <section id="news" class="section bg-light">
         <div class="container">
             <div class="row align-items-end">
-                <div class="col-md-6" data-aos="fade-up"><h2 class="mb-3 mb-md-0">Latest news</h2></div>
+                <div class="col-md-6" data-aos="fade-up"><h2 class="mb-3 mb-md-0">Latest {{ @$data['pageType'] }}</h2></div>
             </div>
             <div class="mt-2 pt-2">
                 <div class="row-news row">
@@ -18,7 +18,7 @@
                                 </div>
                                 <figcaption class="text-justify">
                                     <h5>
-                                        <a href="{!! route('front.show',['blog',$key->slug]) !!}">
+                                        <a href="{!! route('front.show',[$key->type,$key->slug]) !!}">
                                             {!! Str::of($key->title)->words(10) !!}
                                         </a>
                                     </h5>

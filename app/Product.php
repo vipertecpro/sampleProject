@@ -20,6 +20,7 @@ class Product extends Model
         'user_id',
         'product_sku',
         'product_name',
+        'product_slug',
         'product_short_desc',
         'product_long_desc',
         'product_price',

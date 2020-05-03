@@ -51,7 +51,6 @@ $(document).on('click','.activate',function () {
 /*
 * Media Multiple File Upload
 * */
-
 $(document).on('change','#mediaForm #file_upload',function(){
     let form = $('#mediaForm');
     $.ajaxSetup({
@@ -72,7 +71,6 @@ $(document).on('change','#mediaForm #file_upload',function(){
         }
     });
 });
-
 $(document).ready(function() {
     if (location.hash) {
         $("a[href='" + location.hash + "']").tab("show");
@@ -84,4 +82,28 @@ $(document).ready(function() {
 $(window).on("popstate", function() {
     var anchor = location.hash || $("a[data-toggle='pill']").first().attr("href");
     $("a[href='" + anchor + "']").tab("show");
+});
+/*
+* Pop Over
+* */
+$('[data-toggle="popover-click"]').popover({
+    html: true,
+    trigger: 'manual',
+    placement: 'auto',
+    container: 'body',
+    animation: true,
+    content: function () { return $(this).find('.popover-content').html(); },
+}).on('mouseenter', function () {
+    var _this = this;
+    $(this).popover('show');
+    $('.popover').on('mouseleave', function () {
+        $(_this).popover('hide');
+    });
+}).on('mouseleave', function () {
+    var _this = this;
+    setTimeout(function () {
+        if (!$('.popover:hover').length) {
+            $(_this).popover('hide');
+        }
+    }, 300);
 });

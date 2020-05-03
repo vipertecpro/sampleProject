@@ -17,7 +17,7 @@
                             </div>
                             <figcaption class="text-justify">
                                 <h5>
-                                    <a href="{!! route('front.show',['blog',$key->slug]) !!}">
+                                    <a href="{!! route('front.show',[$key->type,$key->slug]) !!}">
                                         {!! Str::of($key->title)->words(10) !!}
                                     </a>
                                 </h5>
